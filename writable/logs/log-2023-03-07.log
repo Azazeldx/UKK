@@ -1,0 +1,371 @@
+CRITICAL - 2023-03-07 03:32:53 --> Call to a member function getName() on null
+in APPPATH\Controllers\Masyarakat\Pengaduan.php on line 45.
+ 1 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\Masyarakat\Pengaduan->proses_tambah()
+ 2 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Masyarakat\Pengaduan))
+ 3 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+ 5 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('FCPATH\\index.php')
+CRITICAL - 2023-03-07 03:34:20 --> Call to a member function getImage() on null
+in APPPATH\Controllers\Masyarakat\Pengaduan.php on line 45.
+ 1 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\Masyarakat\Pengaduan->proses_tambah()
+ 2 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Masyarakat\Pengaduan))
+ 3 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+ 5 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('FCPATH\\index.php')
+CRITICAL - 2023-03-07 03:34:40 --> Call to a member function getImage() on null
+in APPPATH\Controllers\Masyarakat\Pengaduan.php on line 45.
+ 1 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\Masyarakat\Pengaduan->proses_tambah()
+ 2 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Masyarakat\Pengaduan))
+ 3 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+ 5 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('FCPATH\\index.php')
+CRITICAL - 2023-03-07 03:35:10 --> Call to a member function getPengaduan() on null
+in APPPATH\Controllers\Masyarakat\Pengaduan.php on line 45.
+ 1 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\Masyarakat\Pengaduan->proses_tambah()
+ 2 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Masyarakat\Pengaduan))
+ 3 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+ 5 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('FCPATH\\index.php')
+CRITICAL - 2023-03-07 03:35:24 --> Call to a member function getName() on null
+in APPPATH\Controllers\Masyarakat\Pengaduan.php on line 45.
+ 1 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\Masyarakat\Pengaduan->proses_tambah()
+ 2 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Masyarakat\Pengaduan))
+ 3 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+ 5 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('FCPATH\\index.php')
+CRITICAL - 2023-03-07 06:09:14 --> Call to a member function getName() on null
+in APPPATH\Controllers\Masyarakat\Pengaduan.php on line 45.
+ 1 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\Masyarakat\Pengaduan->proses_tambah()
+ 2 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Masyarakat\Pengaduan))
+ 3 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+ 5 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('FCPATH\\index.php')
+ERROR - 2023-03-07 06:24:21 --> mysqli_sql_exception: Table 'pengaduan_masyarakat.tbl_masyarakat' doesn't exist in C:\xampp\htdocs\pengaduan_masyarakat\system\Database\MySQLi\Connection.php:295
+Stack trace:
+#0 C:\xampp\htdocs\pengaduan_masyarakat\system\Database\MySQLi\Connection.php(295): mysqli->query('SELECT *\nFROM `...', 0)
+#1 C:\xampp\htdocs\pengaduan_masyarakat\system\Database\BaseConnection.php(691): CodeIgniter\Database\MySQLi\Connection->execute('SELECT *\nFROM `...')
+#2 C:\xampp\htdocs\pengaduan_masyarakat\system\Database\BaseConnection.php(605): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT *\nFROM `...')
+#3 C:\xampp\htdocs\pengaduan_masyarakat\system\Database\BaseBuilder.php(1602): CodeIgniter\Database\BaseConnection->query('SELECT *\nFROM `...', Array, false)
+#4 C:\xampp\htdocs\pengaduan_masyarakat\app\Models\PengaduanModel.php(39): CodeIgniter\Database\BaseBuilder->get()
+#5 C:\xampp\htdocs\pengaduan_masyarakat\app\Controllers\Petugas\Pengaduan.php(19): App\Models\PengaduanModel->getPengaduan()
+#6 C:\xampp\htdocs\pengaduan_masyarakat\system\CodeIgniter.php(934): App\Controllers\Petugas\Pengaduan->index()
+#7 C:\xampp\htdocs\pengaduan_masyarakat\system\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Petugas\Pengaduan))
+#8 C:\xampp\htdocs\pengaduan_masyarakat\system\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#9 C:\xampp\htdocs\pengaduan_masyarakat\public\index.php(67): CodeIgniter\CodeIgniter->run()
+#10 C:\xampp\htdocs\pengaduan_masyarakat\system\Commands\Server\rewrite.php(47): require_once('C:\\xampp\\htdocs...')
+#11 {main}
+CRITICAL - 2023-03-07 06:24:21 --> Table 'pengaduan_masyarakat.tbl_masyarakat' doesn't exist
+in SYSTEMPATH\Database\BaseConnection.php on line 645.
+ 1 SYSTEMPATH\Database\BaseBuilder.php(1602): CodeIgniter\Database\BaseConnection->query('SELECT *
+FROM `pengaduan`
+JOIN `tbl_masyarakat` ON `pengaduan`.`nik` = `tbl_masyarakat`.`nik`
+WHERE `pengaduan`.`nik` IS NULL', [], false)
+ 2 APPPATH\Models\PengaduanModel.php(39): CodeIgniter\Database\BaseBuilder->get()
+ 3 APPPATH\Controllers\Petugas\Pengaduan.php(19): App\Models\PengaduanModel->getPengaduan()
+ 4 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\Petugas\Pengaduan->index()
+ 5 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Petugas\Pengaduan))
+ 6 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 7 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+ 8 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('FCPATH\\index.php')
+CRITICAL - 2023-03-07 06:25:03 --> Unsupported operand types: string + int
+in APPPATH\Views\petugas\pengaduan\index.php on line 155.
+ 1 SYSTEMPATH\View\View.php(213): include()
+ 2 SYSTEMPATH\View\View.php(216): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 3 SYSTEMPATH\Common.php(1177): CodeIgniter\View\View->render('petugas\\pengaduan\\index', [], true)
+ 4 APPPATH\Controllers\Petugas\Pengaduan.php(21): view('petugas\\pengaduan\\index', [...])
+ 5 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\Petugas\Pengaduan->index()
+ 6 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Petugas\Pengaduan))
+ 7 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 8 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+ 9 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('FCPATH\\index.php')
+CRITICAL - 2023-03-07 06:26:14 --> Cannot use object of type mysqli as array
+in APPPATH\Views\petugas\pengaduan\index.php on line 156.
+ 1 SYSTEMPATH\View\View.php(213): include()
+ 2 SYSTEMPATH\View\View.php(216): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 3 SYSTEMPATH\Common.php(1177): CodeIgniter\View\View->render('petugas\\pengaduan\\index', [], true)
+ 4 APPPATH\Controllers\Petugas\Pengaduan.php(21): view('petugas\\pengaduan\\index', [...])
+ 5 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\Petugas\Pengaduan->index()
+ 6 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Petugas\Pengaduan))
+ 7 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 8 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+ 9 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('FCPATH\\index.php')
+CRITICAL - 2023-03-07 06:27:15 --> Cannot use object of type mysqli as array
+in APPPATH\Views\petugas\pengaduan\index.php on line 156.
+ 1 SYSTEMPATH\View\View.php(213): include()
+ 2 SYSTEMPATH\View\View.php(216): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 3 SYSTEMPATH\Common.php(1177): CodeIgniter\View\View->render('petugas\\pengaduan\\index', [], true)
+ 4 APPPATH\Controllers\Petugas\Pengaduan.php(21): view('petugas\\pengaduan\\index', [...])
+ 5 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\Petugas\Pengaduan->index()
+ 6 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Petugas\Pengaduan))
+ 7 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 8 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+ 9 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('FCPATH\\index.php')
+CRITICAL - 2023-03-07 06:30:03 --> Cannot use object of type mysqli as array
+in APPPATH\Views\petugas\pengaduan\index.php on line 156.
+ 1 SYSTEMPATH\View\View.php(213): include()
+ 2 SYSTEMPATH\View\View.php(216): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 3 SYSTEMPATH\Common.php(1177): CodeIgniter\View\View->render('petugas\\pengaduan\\index', [], true)
+ 4 APPPATH\Controllers\Petugas\Pengaduan.php(21): view('petugas\\pengaduan\\index', [...])
+ 5 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\Petugas\Pengaduan->index()
+ 6 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Petugas\Pengaduan))
+ 7 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 8 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+ 9 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('FCPATH\\index.php')
+CRITICAL - 2023-03-07 06:31:26 --> Cannot use object of type mysqli as array
+in APPPATH\Views\petugas\pengaduan\index.php on line 156.
+ 1 SYSTEMPATH\View\View.php(213): include()
+ 2 SYSTEMPATH\View\View.php(216): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 3 SYSTEMPATH\Common.php(1177): CodeIgniter\View\View->render('petugas\\pengaduan\\index', [], true)
+ 4 APPPATH\Controllers\Petugas\Pengaduan.php(21): view('petugas\\pengaduan\\index', [...])
+ 5 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\Petugas\Pengaduan->index()
+ 6 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Petugas\Pengaduan))
+ 7 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 8 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+ 9 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('FCPATH\\index.php')
+CRITICAL - 2023-03-07 06:31:29 --> Cannot use object of type mysqli as array
+in APPPATH\Views\petugas\pengaduan\index.php on line 156.
+ 1 SYSTEMPATH\View\View.php(213): include()
+ 2 SYSTEMPATH\View\View.php(216): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 3 SYSTEMPATH\Common.php(1177): CodeIgniter\View\View->render('petugas\\pengaduan\\index', [], true)
+ 4 APPPATH\Controllers\Petugas\Pengaduan.php(21): view('petugas\\pengaduan\\index', [...])
+ 5 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\Petugas\Pengaduan->index()
+ 6 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Petugas\Pengaduan))
+ 7 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 8 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+ 9 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('FCPATH\\index.php')
+CRITICAL - 2023-03-07 06:31:35 --> Cannot use object of type mysqli as array
+in APPPATH\Views\petugas\pengaduan\index.php on line 156.
+ 1 SYSTEMPATH\View\View.php(213): include()
+ 2 SYSTEMPATH\View\View.php(216): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 3 SYSTEMPATH\Common.php(1177): CodeIgniter\View\View->render('petugas\\pengaduan\\index', [], true)
+ 4 APPPATH\Controllers\Petugas\Pengaduan.php(21): view('petugas\\pengaduan\\index', [...])
+ 5 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\Petugas\Pengaduan->index()
+ 6 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Petugas\Pengaduan))
+ 7 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 8 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+ 9 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('FCPATH\\index.php')
+CRITICAL - 2023-03-07 06:58:42 --> Cannot use object of type CodeIgniter\Database\MySQLi\Result as array
+in APPPATH\Views\petugas\pengaduan\add.php on line 142.
+ 1 SYSTEMPATH\View\View.php(213): include()
+ 2 SYSTEMPATH\View\View.php(216): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 3 SYSTEMPATH\Common.php(1177): CodeIgniter\View\View->render('/petugas/pengaduan/add', [], true)
+ 4 APPPATH\Controllers\Petugas\Pengaduan.php(33): view('/petugas/pengaduan/add', [...])
+ 5 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\Petugas\Pengaduan->form_add('0987654321123456')
+ 6 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Petugas\Pengaduan))
+ 7 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 8 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+ 9 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('FCPATH\\index.php')
+CRITICAL - 2023-03-07 06:59:29 --> Cannot use object of type CodeIgniter\Database\MySQLi\Result as array
+in APPPATH\Views\petugas\pengaduan\add.php on line 142.
+ 1 SYSTEMPATH\View\View.php(213): include()
+ 2 SYSTEMPATH\View\View.php(216): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 3 SYSTEMPATH\Common.php(1177): CodeIgniter\View\View->render('/petugas/pengaduan/add', [], true)
+ 4 APPPATH\Controllers\Petugas\Pengaduan.php(33): view('/petugas/pengaduan/add', [...])
+ 5 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\Petugas\Pengaduan->form_add('0987654321123456')
+ 6 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Petugas\Pengaduan))
+ 7 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 8 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+ 9 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('FCPATH\\index.php')
+CRITICAL - 2023-03-07 07:03:30 --> Call to undefined method CodeIgniter\Database\MySQLi\Result::first()
+in APPPATH\Models\PengaduanModel.php on line 42.
+ 1 APPPATH\Controllers\Petugas\Pengaduan.php(28): App\Models\PengaduanModel->getPengaduan('1234567890123456')
+ 2 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\Petugas\Pengaduan->form_add('1234567890123456')
+ 3 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Petugas\Pengaduan))
+ 4 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('FCPATH\\index.php')
+CRITICAL - 2023-03-07 07:05:48 --> Cannot use object of type stdClass as array
+in APPPATH\Views\petugas\pengaduan\add.php on line 142.
+ 1 SYSTEMPATH\View\View.php(213): include()
+ 2 SYSTEMPATH\View\View.php(216): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 3 SYSTEMPATH\Common.php(1177): CodeIgniter\View\View->render('/petugas/pengaduan/add', [], true)
+ 4 APPPATH\Controllers\Petugas\Pengaduan.php(33): view('/petugas/pengaduan/add', [...])
+ 5 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\Petugas\Pengaduan->form_add('1234567890123456')
+ 6 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Petugas\Pengaduan))
+ 7 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 8 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+ 9 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('FCPATH\\index.php')
+CRITICAL - 2023-03-07 07:07:28 --> Cannot use object of type stdClass as array
+in APPPATH\Views\petugas\pengaduan\add.php on line 142.
+ 1 SYSTEMPATH\View\View.php(213): include()
+ 2 SYSTEMPATH\View\View.php(216): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 3 SYSTEMPATH\Common.php(1177): CodeIgniter\View\View->render('/petugas/pengaduan/add', [], true)
+ 4 APPPATH\Controllers\Petugas\Pengaduan.php(33): view('/petugas/pengaduan/add', [...])
+ 5 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\Petugas\Pengaduan->form_add('1234567890123456')
+ 6 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Petugas\Pengaduan))
+ 7 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 8 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+ 9 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('FCPATH\\index.php')
+CRITICAL - 2023-03-07 07:07:33 --> Undefined variable $row
+in APPPATH\Views\petugas\pengaduan\index.php on line 169.
+ 1 APPPATH\Views\petugas\pengaduan\index.php(169): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $row', 'APPPATH\\Views\\petugas\\pengaduan\\index.php', 169)
+ 2 SYSTEMPATH\View\View.php(213): include('APPPATH\\Views\\petugas\\pengaduan\\index.php')
+ 3 SYSTEMPATH\View\View.php(216): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1177): CodeIgniter\View\View->render('petugas\\pengaduan\\index', [], true)
+ 5 APPPATH\Controllers\Petugas\Pengaduan.php(22): view('petugas\\pengaduan\\index', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\Petugas\Pengaduan->index()
+ 7 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Petugas\Pengaduan))
+ 8 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('FCPATH\\index.php')
+CRITICAL - 2023-03-07 07:09:02 --> Cannot use object of type stdClass as array
+in APPPATH\Views\petugas\pengaduan\add.php on line 142.
+ 1 SYSTEMPATH\View\View.php(213): include()
+ 2 SYSTEMPATH\View\View.php(216): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 3 SYSTEMPATH\Common.php(1177): CodeIgniter\View\View->render('/petugas/pengaduan/add', [], true)
+ 4 APPPATH\Controllers\Petugas\Pengaduan.php(33): view('/petugas/pengaduan/add', [...])
+ 5 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\Petugas\Pengaduan->form_add('1234567890123456')
+ 6 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Petugas\Pengaduan))
+ 7 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 8 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+ 9 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('FCPATH\\index.php')
+CRITICAL - 2023-03-07 07:10:05 --> Attempt to read property "nik" on array
+in APPPATH\Views\petugas\pengaduan\index.php on line 169.
+ 1 APPPATH\Views\petugas\pengaduan\index.php(169): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Attempt to read property "nik" on array', 'APPPATH\\Views\\petugas\\pengaduan\\index.php', 169)
+ 2 SYSTEMPATH\View\View.php(213): include('APPPATH\\Views\\petugas\\pengaduan\\index.php')
+ 3 SYSTEMPATH\View\View.php(216): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1177): CodeIgniter\View\View->render('petugas\\pengaduan\\index', [], true)
+ 5 APPPATH\Controllers\Petugas\Pengaduan.php(22): view('petugas\\pengaduan\\index', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\Petugas\Pengaduan->index()
+ 7 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Petugas\Pengaduan))
+ 8 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('FCPATH\\index.php')
+CRITICAL - 2023-03-07 07:30:47 --> Undefined variable $datapengaduan
+in APPPATH\Views\petugas\pengaduan\add.php on line 154.
+ 1 APPPATH\Views\petugas\pengaduan\add.php(154): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $datapengaduan', 'APPPATH\\Views\\petugas\\pengaduan\\add.php', 154)
+ 2 SYSTEMPATH\View\View.php(213): include('APPPATH\\Views\\petugas\\pengaduan\\add.php')
+ 3 SYSTEMPATH\View\View.php(216): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1177): CodeIgniter\View\View->render('/petugas/pengaduan/add', [], true)
+ 5 APPPATH\Controllers\Petugas\Pengaduan.php(33): view('/petugas/pengaduan/add', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\Petugas\Pengaduan->form_add('1234567890123456')
+ 7 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Petugas\Pengaduan))
+ 8 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('FCPATH\\index.php')
+CRITICAL - 2023-03-07 07:31:06 --> Undefined property: stdClass::$tanggal
+in APPPATH\Views\petugas\pengaduan\add.php on line 154.
+ 1 APPPATH\Views\petugas\pengaduan\add.php(154): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined property: stdClass::$tanggal', 'APPPATH\\Views\\petugas\\pengaduan\\add.php', 154)
+ 2 SYSTEMPATH\View\View.php(213): include('APPPATH\\Views\\petugas\\pengaduan\\add.php')
+ 3 SYSTEMPATH\View\View.php(216): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1177): CodeIgniter\View\View->render('/petugas/pengaduan/add', [], true)
+ 5 APPPATH\Controllers\Petugas\Pengaduan.php(33): view('/petugas/pengaduan/add', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\Petugas\Pengaduan->form_add('1234567890123456')
+ 7 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Petugas\Pengaduan))
+ 8 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('FCPATH\\index.php')
+CRITICAL - 2023-03-07 07:31:15 --> Undefined property: stdClass::$tanggal
+in APPPATH\Views\petugas\pengaduan\add.php on line 154.
+ 1 APPPATH\Views\petugas\pengaduan\add.php(154): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined property: stdClass::$tanggal', 'APPPATH\\Views\\petugas\\pengaduan\\add.php', 154)
+ 2 SYSTEMPATH\View\View.php(213): include('APPPATH\\Views\\petugas\\pengaduan\\add.php')
+ 3 SYSTEMPATH\View\View.php(216): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1177): CodeIgniter\View\View->render('/petugas/pengaduan/add', [], true)
+ 5 APPPATH\Controllers\Petugas\Pengaduan.php(33): view('/petugas/pengaduan/add', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\Petugas\Pengaduan->form_add('1234567890123456')
+ 7 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Petugas\Pengaduan))
+ 8 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('FCPATH\\index.php')
+INFO - 2023-03-07 08:59:14 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-03-07 09:01:37 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+CRITICAL - 2023-03-07 09:01:37 --> Call to undefined method CodeIgniter\Session\Session::set_flashdata()
+in APPPATH\Controllers\Home.php on line 29.
+ 1 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\Home->login()
+ 2 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Home))
+ 3 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+ 5 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('FCPATH\\index.php')
+CRITICAL - 2023-03-07 09:10:42 --> Undefined property: App\Controllers\Home::$session
+in APPPATH\Controllers\Home.php on line 33.
+ 1 APPPATH\Controllers\Home.php(33): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined property: App\\Controllers\\Home::$session', 'APPPATH\\Controllers\\Home.php', 33)
+ 2 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\Home->login()
+ 3 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Home))
+ 4 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('FCPATH\\index.php')
+INFO - 2023-03-07 09:12:47 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-03-07 09:24:04 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-03-07 09:24:47 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+CRITICAL - 2023-03-07 10:44:41 --> Undefined property: App\Controllers\Home::$session
+in APPPATH\Controllers\Home.php on line 31.
+ 1 APPPATH\Controllers\Home.php(31): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined property: App\\Controllers\\Home::$session', 'APPPATH\\Controllers\\Home.php', 31)
+ 2 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\Home->login()
+ 3 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Home))
+ 4 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('FCPATH\\index.php')
+CRITICAL - 2023-03-07 10:45:13 --> Undefined property: App\Controllers\Home::$session
+in APPPATH\Controllers\Home.php on line 31.
+ 1 APPPATH\Controllers\Home.php(31): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined property: App\\Controllers\\Home::$session', 'APPPATH\\Controllers\\Home.php', 31)
+ 2 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\Home->login()
+ 3 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Home))
+ 4 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('FCPATH\\index.php')
+CRITICAL - 2023-03-07 10:45:59 --> Undefined constant "App\Controllers\session"
+in APPPATH\Controllers\Home.php on line 31.
+ 1 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\Home->login()
+ 2 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Home))
+ 3 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+ 5 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('FCPATH\\index.php')
+INFO - 2023-03-07 10:46:28 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-03-07 10:46:40 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+CRITICAL - 2023-03-07 10:51:11 --> Undefined property: App\Controllers\Home::$session
+in APPPATH\Controllers\Home.php on line 37.
+ 1 APPPATH\Controllers\Home.php(37): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined property: App\\Controllers\\Home::$session', 'APPPATH\\Controllers\\Home.php', 37)
+ 2 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\Home->login()
+ 3 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Home))
+ 4 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('FCPATH\\index.php')
+CRITICAL - 2023-03-07 10:51:40 --> Undefined property: App\Controllers\Home::$session
+in APPPATH\Controllers\Home.php on line 37.
+ 1 APPPATH\Controllers\Home.php(37): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined property: App\\Controllers\\Home::$session', 'APPPATH\\Controllers\\Home.php', 37)
+ 2 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\Home->login()
+ 3 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Home))
+ 4 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('FCPATH\\index.php')
+CRITICAL - 2023-03-07 10:52:06 --> Undefined property: App\Controllers\Home::$session
+in APPPATH\Controllers\Home.php on line 37.
+ 1 APPPATH\Controllers\Home.php(37): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined property: App\\Controllers\\Home::$session', 'APPPATH\\Controllers\\Home.php', 37)
+ 2 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\Home->login()
+ 3 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Home))
+ 4 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('FCPATH\\index.php')
+CRITICAL - 2023-03-07 10:54:05 --> Undefined property: App\Controllers\Home::$session
+in APPPATH\Controllers\Home.php on line 37.
+ 1 APPPATH\Controllers\Home.php(37): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined property: App\\Controllers\\Home::$session', 'APPPATH\\Controllers\\Home.php', 37)
+ 2 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\Home->login()
+ 3 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Home))
+ 4 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('FCPATH\\index.php')
+INFO - 2023-03-07 11:07:04 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+CRITICAL - 2023-03-07 11:07:46 --> Undefined property: App\Controllers\Home::$session
+in APPPATH\Controllers\Home.php on line 37.
+ 1 APPPATH\Controllers\Home.php(37): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined property: App\\Controllers\\Home::$session', 'APPPATH\\Controllers\\Home.php', 37)
+ 2 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\Home->login()
+ 3 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Home))
+ 4 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('FCPATH\\index.php')
+CRITICAL - 2023-03-07 11:08:58 --> Undefined property: App\Controllers\Home::$session
+in APPPATH\Controllers\Home.php on line 37.
+ 1 APPPATH\Controllers\Home.php(37): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined property: App\\Controllers\\Home::$session', 'APPPATH\\Controllers\\Home.php', 37)
+ 2 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\Home->login()
+ 3 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Home))
+ 4 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('FCPATH\\index.php')
+CRITICAL - 2023-03-07 11:12:24 --> Undefined property: App\Controllers\Home::$session
+in APPPATH\Controllers\Home.php on line 37.
+ 1 APPPATH\Controllers\Home.php(37): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined property: App\\Controllers\\Home::$session', 'APPPATH\\Controllers\\Home.php', 37)
+ 2 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\Home->login()
+ 3 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Home))
+ 4 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('FCPATH\\index.php')

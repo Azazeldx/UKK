@@ -1,0 +1,48 @@
+CRITICAL - 2023-03-01 03:34:40 --> Undefined array key "telp"
+in APPPATH\Controllers\Registrasi.php on line 28.
+ 1 APPPATH\Controllers\Registrasi.php(28): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined array key "telp"', 'APPPATH\\Controllers\\Registrasi.php', 28)
+ 2 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\Registrasi->tambah()
+ 3 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Registrasi))
+ 4 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('FCPATH\\index.php')
+CRITICAL - 2023-03-01 03:35:13 --> Undefined array key "telp"
+in APPPATH\Controllers\Registrasi.php on line 28.
+ 1 APPPATH\Controllers\Registrasi.php(28): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined array key "telp"', 'APPPATH\\Controllers\\Registrasi.php', 28)
+ 2 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\Registrasi->tambah()
+ 3 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Registrasi))
+ 4 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('FCPATH\\index.php')
+CRITICAL - 2023-03-01 07:29:25 --> sizeof(): Argument #1 ($value) must be of type Countable|array, null given
+in APPPATH\Views\masyarakat\beranda\index.php on line 135.
+ 1 SYSTEMPATH\View\View.php(213): include()
+ 2 SYSTEMPATH\View\View.php(216): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 3 SYSTEMPATH\Common.php(1177): CodeIgniter\View\View->render('masyarakat\\beranda\\index', [], true)
+ 4 APPPATH\Controllers\Masyarakat\Beranda.php(10): view('masyarakat\\beranda\\index')
+ 5 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\Masyarakat\Beranda->index()
+ 6 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Masyarakat\Beranda))
+ 7 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 8 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+ 9 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('FCPATH\\index.php')
+CRITICAL - 2023-03-01 07:30:09 --> Class "App\Controllers\Masyarakat\MasyarakatModel" not found
+in APPPATH\Controllers\Masyarakat\Beranda.php on line 11.
+ 1 SYSTEMPATH\CodeIgniter.php(906): App\Controllers\Masyarakat\Beranda->__construct()
+ 2 SYSTEMPATH\CodeIgniter.php(490): CodeIgniter\CodeIgniter->createController()
+ 3 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+ 5 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('FCPATH\\index.php')
+CRITICAL - 2023-03-01 07:31:26 --> Class "App\Controllers\Masyarakat\MasyarakatModel" not found
+in APPPATH\Controllers\Masyarakat\Beranda.php on line 11.
+ 1 SYSTEMPATH\CodeIgniter.php(906): App\Controllers\Masyarakat\Beranda->__construct()
+ 2 SYSTEMPATH\CodeIgniter.php(490): CodeIgniter\CodeIgniter->createController()
+ 3 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+ 5 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('FCPATH\\index.php')
+CRITICAL - 2023-03-01 08:04:58 --> Class "App\Controllers\Petugas\PengaduanModel" not found
+in APPPATH\Controllers\Petugas\Pengaduan.php on line 11.
+ 1 SYSTEMPATH\CodeIgniter.php(906): App\Controllers\Petugas\Pengaduan->__construct()
+ 2 SYSTEMPATH\CodeIgniter.php(490): CodeIgniter\CodeIgniter->createController()
+ 3 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+ 5 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('FCPATH\\index.php')

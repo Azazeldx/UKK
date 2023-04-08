@@ -1,0 +1,203 @@
+INFO - 2023-03-14 06:11:43 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+ERROR - 2023-03-14 06:11:44 --> Error connecting to the database: mysqli_sql_exception: Unknown database 'pengaduan_masyarakat2' in C:\xampp\htdocs\pengaduan_masyarakat\system\Database\MySQLi\Connection.php:174
+Stack trace:
+#0 C:\xampp\htdocs\pengaduan_masyarakat\system\Database\MySQLi\Connection.php(174): mysqli->real_connect('localhost', 'root', '', 'pengaduan_masya...', 3306, '', 0)
+#1 C:\xampp\htdocs\pengaduan_masyarakat\system\Database\BaseConnection.php(391): CodeIgniter\Database\MySQLi\Connection->connect(false)
+#2 C:\xampp\htdocs\pengaduan_masyarakat\system\Database\BaseConnection.php(573): CodeIgniter\Database\BaseConnection->initialize()
+#3 C:\xampp\htdocs\pengaduan_masyarakat\system\Database\BaseBuilder.php(1602): CodeIgniter\Database\BaseConnection->query('SELECT *\nFROM `...', Array, false)
+#4 C:\xampp\htdocs\pengaduan_masyarakat\app\Models\PetugasModel.php(28): CodeIgniter\Database\BaseBuilder->get()
+#5 C:\xampp\htdocs\pengaduan_masyarakat\app\Controllers\Petugas\Login.php(24): App\Models\PetugasModel->login('sadhu', '827ccb0eea8a706...')
+#6 C:\xampp\htdocs\pengaduan_masyarakat\system\CodeIgniter.php(934): App\Controllers\Petugas\Login->login()
+#7 C:\xampp\htdocs\pengaduan_masyarakat\system\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Petugas\Login))
+#8 C:\xampp\htdocs\pengaduan_masyarakat\system\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#9 C:\xampp\htdocs\pengaduan_masyarakat\public\index.php(67): CodeIgniter\CodeIgniter->run()
+#10 C:\xampp\htdocs\pengaduan_masyarakat\system\Commands\Server\rewrite.php(47): require_once('C:\\xampp\\htdocs...')
+#11 {main}
+
+Next CodeIgniter\Database\Exceptions\DatabaseException: Unknown database 'pengaduan_masyarakat2' in C:\xampp\htdocs\pengaduan_masyarakat\system\Database\MySQLi\Connection.php:218
+Stack trace:
+#0 C:\xampp\htdocs\pengaduan_masyarakat\system\Database\BaseConnection.php(391): CodeIgniter\Database\MySQLi\Connection->connect(false)
+#1 C:\xampp\htdocs\pengaduan_masyarakat\system\Database\BaseConnection.php(573): CodeIgniter\Database\BaseConnection->initialize()
+#2 C:\xampp\htdocs\pengaduan_masyarakat\system\Database\BaseBuilder.php(1602): CodeIgniter\Database\BaseConnection->query('SELECT *\nFROM `...', Array, false)
+#3 C:\xampp\htdocs\pengaduan_masyarakat\app\Models\PetugasModel.php(28): CodeIgniter\Database\BaseBuilder->get()
+#4 C:\xampp\htdocs\pengaduan_masyarakat\app\Controllers\Petugas\Login.php(24): App\Models\PetugasModel->login('sadhu', '827ccb0eea8a706...')
+#5 C:\xampp\htdocs\pengaduan_masyarakat\system\CodeIgniter.php(934): App\Controllers\Petugas\Login->login()
+#6 C:\xampp\htdocs\pengaduan_masyarakat\system\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Petugas\Login))
+#7 C:\xampp\htdocs\pengaduan_masyarakat\system\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#8 C:\xampp\htdocs\pengaduan_masyarakat\public\index.php(67): CodeIgniter\CodeIgniter->run()
+#9 C:\xampp\htdocs\pengaduan_masyarakat\system\Commands\Server\rewrite.php(47): require_once('C:\\xampp\\htdocs...')
+#10 {main}
+CRITICAL - 2023-03-14 06:11:44 --> Unable to connect to the database.
+Main connection [MySQLi]: Unknown database 'pengaduan_masyarakat2'
+in SYSTEMPATH\Database\BaseConnection.php on line 427.
+ 1 SYSTEMPATH\Database\BaseConnection.php(573): CodeIgniter\Database\BaseConnection->initialize()
+ 2 SYSTEMPATH\Database\BaseBuilder.php(1602): CodeIgniter\Database\BaseConnection->query('SELECT *
+FROM `petugas`
+WHERE `username` = :username:
+AND `password` = :password:', [...], false)
+ 3 APPPATH\Models\PetugasModel.php(28): CodeIgniter\Database\BaseBuilder->get()
+ 4 APPPATH\Controllers\Petugas\Login.php(24): App\Models\PetugasModel->login('sadhu', '827ccb0eea8a706c4c34a16891f84e7b')
+ 5 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\Petugas\Login->login()
+ 6 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Petugas\Login))
+ 7 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 8 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+ 9 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('FCPATH\\index.php')
+INFO - 2023-03-14 06:12:21 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-03-14 06:12:23 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-03-14 06:12:40 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-03-14 06:12:53 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-03-14 06:12:54 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-03-14 06:14:53 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+CRITICAL - 2023-03-14 06:14:53 --> Attempt to read property "level" on null
+in APPPATH\Controllers\Petugas\Login.php on line 26.
+ 1 APPPATH\Controllers\Petugas\Login.php(26): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Attempt to read property "level" on null', 'APPPATH\\Controllers\\Petugas\\Login.php', 26)
+ 2 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\Petugas\Login->login()
+ 3 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Petugas\Login))
+ 4 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('FCPATH\\index.php')
+INFO - 2023-03-14 06:16:31 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-03-14 06:16:32 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-03-14 06:25:44 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-03-14 06:25:44 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-03-14 06:26:47 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-03-14 06:27:01 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-03-14 06:27:01 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-03-14 06:29:45 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-03-14 06:32:36 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-03-14 06:32:52 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-03-14 06:33:39 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-03-14 06:45:47 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-03-14 06:46:07 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+CRITICAL - 2023-03-14 06:47:09 --> Undefined property: App\Controllers\Home::$load
+in APPPATH\Controllers\Home.php on line 47.
+ 1 APPPATH\Controllers\Home.php(47): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined property: App\\Controllers\\Home::$load', 'APPPATH\\Controllers\\Home.php', 47)
+ 2 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\Home->login()
+ 3 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Home))
+ 4 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('FCPATH\\index.php')
+CRITICAL - 2023-03-14 06:48:47 --> Undefined variable $session
+in APPPATH\Controllers\Home.php on line 35.
+ 1 APPPATH\Controllers\Home.php(35): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $session', 'APPPATH\\Controllers\\Home.php', 35)
+ 2 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\Home->login()
+ 3 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Home))
+ 4 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('FCPATH\\index.php')
+INFO - 2023-03-14 06:50:03 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-03-14 06:50:05 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-03-14 07:02:22 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-03-14 07:54:41 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-03-14 07:55:51 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+CRITICAL - 2023-03-14 08:00:15 --> Undefined property: stdClass::$id_petugas
+in APPPATH\Views\petugas\pengaduan\add.php on line 142.
+ 1 APPPATH\Views\petugas\pengaduan\add.php(142): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined property: stdClass::$id_petugas', 'APPPATH\\Views\\petugas\\pengaduan\\add.php', 142)
+ 2 SYSTEMPATH\View\View.php(213): include('APPPATH\\Views\\petugas\\pengaduan\\add.php')
+ 3 SYSTEMPATH\View\View.php(216): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1177): CodeIgniter\View\View->render('/petugas/pengaduan/add', [], true)
+ 5 APPPATH\Controllers\Petugas\Pengaduan.php(33): view('/petugas/pengaduan/add', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\Petugas\Pengaduan->form_add('0987654321123456')
+ 7 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Petugas\Pengaduan))
+ 8 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('FCPATH\\index.php')
+INFO - 2023-03-14 08:21:41 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-03-14 08:22:49 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-03-14 08:25:17 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-03-14 08:27:42 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-03-14 08:27:43 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-03-14 08:28:35 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-03-14 08:30:02 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-03-14 08:30:03 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-03-14 08:30:15 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-03-14 08:30:50 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-03-14 08:32:38 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+CRITICAL - 2023-03-14 08:32:38 --> Undefined variable $judul
+in APPPATH\Views\petugas\pengaduan\index.php on line 111.
+ 1 APPPATH\Views\petugas\pengaduan\index.php(111): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $judul', 'APPPATH\\Views\\petugas\\pengaduan\\index.php', 111)
+ 2 SYSTEMPATH\View\View.php(213): include('APPPATH\\Views\\petugas\\pengaduan\\index.php')
+ 3 SYSTEMPATH\View\View.php(216): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1177): CodeIgniter\View\View->render('petugas\\pengaduan\\index', [], true)
+ 5 APPPATH\Controllers\Petugas\Pengaduan.php(52): view('petugas\\pengaduan\\index')
+ 6 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\Petugas\Pengaduan->proses_tambah_tanggapan()
+ 7 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Petugas\Pengaduan))
+ 8 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('FCPATH\\index.php')
+INFO - 2023-03-14 08:34:52 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+CRITICAL - 2023-03-14 08:34:52 --> Call to undefined function App\Controllers\Petugas\redirected()
+in APPPATH\Controllers\Petugas\Pengaduan.php on line 52.
+ 1 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\Petugas\Pengaduan->proses_tambah_tanggapan()
+ 2 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Petugas\Pengaduan))
+ 3 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+ 5 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('FCPATH\\index.php')
+INFO - 2023-03-14 08:35:05 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+CRITICAL - 2023-03-14 08:35:06 --> Attempt to read property "id_pengaduan" on array
+in APPPATH\Views\petugas\pengaduan\add.php on line 142.
+ 1 APPPATH\Views\petugas\pengaduan\add.php(142): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Attempt to read property "id_pengaduan" on array', 'APPPATH\\Views\\petugas\\pengaduan\\add.php', 142)
+ 2 SYSTEMPATH\View\View.php(213): include('APPPATH\\Views\\petugas\\pengaduan\\add.php')
+ 3 SYSTEMPATH\View\View.php(216): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1177): CodeIgniter\View\View->render('/petugas/pengaduan/add', [], true)
+ 5 APPPATH\Controllers\Petugas\Pengaduan.php(35): view('/petugas/pengaduan/add', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\Petugas\Pengaduan->form_add()
+ 7 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Petugas\Pengaduan))
+ 8 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('FCPATH\\index.php')
+CRITICAL - 2023-03-14 08:36:21 --> Attempt to read property "id_pengaduan" on array
+in APPPATH\Views\petugas\pengaduan\add.php on line 142.
+ 1 APPPATH\Views\petugas\pengaduan\add.php(142): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Attempt to read property "id_pengaduan" on array', 'APPPATH\\Views\\petugas\\pengaduan\\add.php', 142)
+ 2 SYSTEMPATH\View\View.php(213): include('APPPATH\\Views\\petugas\\pengaduan\\add.php')
+ 3 SYSTEMPATH\View\View.php(216): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1177): CodeIgniter\View\View->render('/petugas/pengaduan/add', [], true)
+ 5 APPPATH\Controllers\Petugas\Pengaduan.php(35): view('/petugas/pengaduan/add', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\Petugas\Pengaduan->form_add()
+ 7 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Petugas\Pengaduan))
+ 8 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('FCPATH\\index.php')
+INFO - 2023-03-14 08:36:43 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-03-14 08:36:44 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-03-14 08:37:53 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-03-14 08:41:24 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-03-14 08:41:50 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-03-14 08:43:32 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-03-14 08:44:39 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-03-14 08:44:39 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-03-14 08:47:39 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-03-14 08:47:40 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-03-14 08:49:12 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-03-14 08:49:42 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-03-14 08:53:48 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-03-14 08:53:49 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-03-14 08:54:19 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-03-14 08:54:20 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-03-14 08:57:21 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-03-14 08:57:22 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-03-14 09:00:50 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+CRITICAL - 2023-03-14 09:00:51 --> Attempt to read property "id_pengaduan" on array
+in APPPATH\Views\petugas\pengaduan\add.php on line 142.
+ 1 APPPATH\Views\petugas\pengaduan\add.php(142): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Attempt to read property "id_pengaduan" on array', 'APPPATH\\Views\\petugas\\pengaduan\\add.php', 142)
+ 2 SYSTEMPATH\View\View.php(213): include('APPPATH\\Views\\petugas\\pengaduan\\add.php')
+ 3 SYSTEMPATH\View\View.php(216): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1177): CodeIgniter\View\View->render('/petugas/pengaduan/add', [], true)
+ 5 APPPATH\Controllers\Petugas\Pengaduan.php(35): view('/petugas/pengaduan/add', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\Petugas\Pengaduan->form_add()
+ 7 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Petugas\Pengaduan))
+ 8 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('FCPATH\\index.php')
+CRITICAL - 2023-03-14 09:03:39 --> Attempt to read property "id_pengaduan" on array
+in APPPATH\Views\petugas\pengaduan\add.php on line 142.
+ 1 APPPATH\Views\petugas\pengaduan\add.php(142): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Attempt to read property "id_pengaduan" on array', 'APPPATH\\Views\\petugas\\pengaduan\\add.php', 142)
+ 2 SYSTEMPATH\View\View.php(213): include('APPPATH\\Views\\petugas\\pengaduan\\add.php')
+ 3 SYSTEMPATH\View\View.php(216): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1177): CodeIgniter\View\View->render('/petugas/pengaduan/add', [], true)
+ 5 APPPATH\Controllers\Petugas\Pengaduan.php(35): view('/petugas/pengaduan/add', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\Petugas\Pengaduan->form_add()
+ 7 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Petugas\Pengaduan))
+ 8 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('FCPATH\\index.php')
