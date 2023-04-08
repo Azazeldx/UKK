@@ -34,10 +34,10 @@ class PenggunaModel extends Model
         return $query->getRow();
     }
 
-    public function findByUsername($username)
+    public function findById($id)
     {
         return $this->db
-            ->query('CALL findByUsername(?)', $username)
+            ->query('CALL findById(?)', $id)
             ->getRow();
     }
 }

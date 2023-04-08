@@ -184,11 +184,11 @@
 
 
                           <td class="d-flex justify-content-center">
-                            <button type="button" class="btn btn-success m-1 btn-edit" data-toggle="modal" data-target="#modal-ubah" data-whatever="@getbootstrap" data-id_petugas="<?= $petugas['id_petugas']; ?>" data-nama_petugas="<?= $petugas['nama_petugas']; ?>" data-username="<?= $petugas['username']; ?>" data-password="<?= $petugas['password']; ?>" data-telp="<?= $petugas['telp']; ?>" data-level="<?= $petugas['role']; ?>">
+                            <button type="button" class="btn btn-success m-1 btn-edit" data-toggle="modal" data-target="#modal-ubah" data-whatever="@getbootstrap" data-id_petugas="<?= $petugas['id_petugas']; ?>" data-id_pengguna="<?= $petugas['id_pengguna']; ?>" data-nama_petugas="<?= $petugas['nama_petugas']; ?>" data-username="<?= $petugas['username']; ?>" data-password="<?= $petugas['password']; ?>" data-telp="<?= $petugas['telp']; ?>" data-level="<?= $petugas['role']; ?>">
                               <i class="fas fa-edit"></i>
                               Ubah
                             </button>
-                            <button type="button" class="btn btn-danger m-1 btn-delete" data-id="<?= $petugas['id_petugas']; ?>">
+                            <button type="button" class="btn btn-danger m-1 btn-delete" data-id="<?= $petugas['id_petugas']; ?>" data-id_pengguna="<?= $petugas['id_pengguna']; ?>">
                               <i class="fas fa-trash"></i>
                               Hapus
                             </button>
@@ -271,9 +271,10 @@
             </div>
             <div class="modal-body">
               <form action="<?= base_url('admin/petugas/update'); ?>" method="POST">
+                <input type="hidden" name="id_petugas" class="id_petugas">
+                <input type="hidden" name="id_pengguna" class="id_pengguna">
                 <div class="form-group">
                   <label for="nama">Nama Petugas</label>
-                  <input type="hidden" name="id_petugas" class="id_petugas">
                   <input type="text" class="form-control nama_petugas" id="nama_petugas" name="nama_petugas" placeholder="Masukan Nama">
                 </div>
                 <div class="form-group">
@@ -322,6 +323,7 @@
               <div class="modal-body">
                 <p>Yakin Data Dengan id_petugas <span class="id_petugas-confirm"></span> Ini Akan Dihapus ?</p>
                 <input type="hidden" name="id_petugas" class="id_petugas" id="id_petugas">
+                <input type="hidden" name="id_pengguna" class="id_pengguna" id="id_pengguna">
               </div>
               <div class="modal-footer justify-content-between">
                 <button type="button" class="btn btn-outline-light" data-dismiss="modal">Tidak</button>
@@ -366,6 +368,7 @@
     $(document).ready(function() {
       $('.btn-edit').on('click', function() {
         const id_petugas = $(this).data('id_petugas');
+        const id_pengguna = $(this).data('id_pengguna');
         const nama_petugas = $(this).data('nama_petugas');
         const username = $(this).data('username');
         const password = $(this).data('password');
@@ -373,6 +376,7 @@
         const level = $(this).data('level');
 
         $('.id_petugas').val(id_petugas);
+        $('.id_pengguna').val(id_pengguna);
         $('.nama_petugas').val(nama_petugas);
         $('.username').val(username);
         $('.password').val(password);
@@ -388,9 +392,11 @@
     $(document).ready(function() {
       $('.btn-delete').on('click', function() {
         const id = $(this).data('id');
+        const idPengguna = $(this).data('id_pengguna');
 
         $('.id_petugas-confirm').text(id);
         $('.id_petugas').val(id);
+        $('.id_pengguna').val(idPengguna);
         $('#modal-hapus').modal('show');
       });
     });

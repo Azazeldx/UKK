@@ -32,7 +32,8 @@ class Registrasi extends BaseController
                 'role' => 'umum'
             ]);
 
-            $pengguna = $this->PenggunaModel->findByUsername($addedData['username']);
+            $insertId = $this->PenggunaModel->getInsertID();
+            $pengguna = $this->PenggunaModel->findById($insertId);
 
             $this->MasyarakatModel->insert([
                 'id_pengguna' => $pengguna->id_pengguna,

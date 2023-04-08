@@ -39,7 +39,8 @@ class Petugas extends BaseController
                 'role' =>  $addedData['level'],
             ]);
 
-            $pengguna = $this->PenggunaModel->findByUsername($addedData['username']);
+            $insertId = $this->PenggunaModel->getInsertID();
+            $pengguna = $this->PenggunaModel->findById($insertId);
             $this->PetugasModel->insert([
                 'id_pengguna' => $pengguna->id_pengguna,
                 'nama_petugas' => $addedData['nama_petugas'],
@@ -59,14 +60,22 @@ class Petugas extends BaseController
     {
         $updatedData = $this->request->getVar();
 
-        $this->PetugasModel->replace([
-            'id_petugas' => $updatedData['id_petugas'],
-            'nama_petugas' => $updatedData['nama_petugas'],
-            'username' => $updatedData['username'],
-            'password' => $updatedData['password'],
-            'telp' => $updatedData['telp'],
-            'level' => $updatedData['level']
-        ]);
+        $this->PetugasModel->update(
+            ['id_petugas' => $updatedData['id_petugas']],
+            [
+                'nama_petugas' => $updatedData['nama_petugas'],
+                'telp' => $updatedData['telp']
+            ]
+        );
+
+        $this->PenggunaModel->update(
+            ['id_pengguna', $updatedData['id_pengguna']],
+            [
+                'username' => $updatedData['username'],
+                'password' => $updatedData['password'],
+                'role' => $updatedData['level']
+            ]
+        );
 
         return redirect()->to(base_url('Admin/Petugas'));
     }
@@ -74,9 +83,12 @@ class Petugas extends BaseController
     public function hapus()
     {
         $id = $this->request->getPost('id_petugas');
+        $idPengguna = $this->request->getPost('id_pengguna');
         $getOnePetugas = $this->PetugasModel->getPetugas($id);
+        $getOnePengguna = $this->PenggunaModel->getPengguna($idPengguna);
 
-        if (isset($getOnePetugas)) {
+        if (isset($getOnePengguna) && isset($getOnePetugas)) {
+            $this->PenggunaModel->delete($idPengguna);
             $this->PetugasModel->delete($id);
         }
 
