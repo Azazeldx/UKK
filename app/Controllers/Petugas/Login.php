@@ -3,14 +3,17 @@
 namespace App\Controllers\Petugas;
 
 use App\Controllers\BaseController;
+use App\Models\PenggunaModel;
 use App\Models\PetugasModel;
 
 class Login extends BaseController
 {
-
+    protected $PetugasModel;
+    protected $PenggunaModel;
     public function __construct()
     {
         $this->PetugasModel = new PetugasModel();
+        $this->PenggunaModel = new PenggunaModel();
     }
 
     public function index()
@@ -22,20 +25,16 @@ class Login extends BaseController
     {
         $session = session();
         $username = $this->request->getVar('username');
-        $password = $this->request->getVar('password');
-        $validUser = $this->PetugasModel->login($username, $password);
-
-
-
-        // var_dump($level);
+        $password = md5($this->request->getVar('password'));
+        $validUser = $this->PenggunaModel->login($username, $password, 'petugas');
 
         if ($validUser) {
-            $level = $validUser->level;
+            $level = $validUser->role;
             if ($level === 'admin') {
                 $ses_admin = [
                     'username' => $validUser->username,
                     'nama_petugas' => $validUser->nama_petugas,
-                    'level' => $validUser->level,
+                    'level' => $validUser->role,
                     'logged_in' => TRUE,
                     'id_petugas' => $validUser->id_petugas
                 ];
@@ -45,7 +44,7 @@ class Login extends BaseController
                 $ses_petugas = [
                     'username' => $validUser->username,
                     'nama_petugas' => $validUser->nama_petugas,
-                    'level' => $validUser->level,
+                    'level' => $validUser->role,
                     'logged_in' => TRUE,
                     'id_petugas' => $validUser->id_petugas
                 ];
@@ -56,13 +55,17 @@ class Login extends BaseController
 
             echo '<script>
             alert("Username atau Password Salah!");
-            window.location="' . base_url('petugas/login') . '"
+            window.location="' . base_url('home') . '"
             </script>';
 
             // // $this->session->set_flashdata('error', 'Username atau password salah');
 
-            $this->session->set_flashdata('error', 'Username atau Password salah');
-            return $this->load->view('petugas/login');
+            // $this->session->set_flashdata('error', 'Username atau Password salah');
+            return $this->load->view('home');
+            //  session()->setFlashdata("error", "Username atau password salah");
+            //  return redirect()->to(base_url('/home'));
+
+
         }
     }
 

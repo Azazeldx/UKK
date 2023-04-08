@@ -3,14 +3,17 @@
 namespace App\Controllers;
 
 use App\Models\MasyarakatModel;
+use App\Models\PenggunaModel;
 
 class Home extends BaseController
 {
     protected $MasyarakatModel;
+    protected $PenggunaModel;
 
     public function __construct()
     {
         $this->MasyarakatModel = new MasyarakatModel();
+        $this->PenggunaModel = new PenggunaModel();
     }
 
     public function index()
@@ -22,8 +25,8 @@ class Home extends BaseController
     {
         $session = session();
         $username = $this->request->getVar('username');
-        $password = $this->request->getVar('password');
-        $validUser = $this->MasyarakatModel->login($username, $password);
+        $password = md5($this->request->getVar('password'));
+        $validUser = $this->PenggunaModel->login($username, $password, 'masyarakat');
 
         if ($validUser) {
             $ses_masyarakat = [
@@ -32,6 +35,7 @@ class Home extends BaseController
                 'username' => $validUser->username,
                 'telp' => $validUser->telp,
                 'logged_in' => TRUE,
+                'role' => $validUser->role
             ];
             $session->set($ses_masyarakat);
             return redirect()->to(base_url('/masyarakat/beranda'));

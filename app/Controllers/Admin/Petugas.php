@@ -1,16 +1,21 @@
 <?php
 
 namespace App\Controllers\Admin;
+
 use App\Controllers\BaseController;
 
 use App\Models\PetugasModel;
+use App\Models\PenggunaModel;
 
 class Petugas extends BaseController
 {
+    protected $PetugasModel;
+    protected $PenggunaModel;
 
     public function __construct()
     {
         $this->PetugasModel = new PetugasModel();
+        $this->PenggunaModel = new PenggunaModel();
     }
 
     public function index()
@@ -25,16 +30,28 @@ class Petugas extends BaseController
     public function tambah()
     {
         $addedData = $this->request->getVar();
+        $this->PenggunaModel->db->transBegin();
 
-        $this->PetugasModel->insert([
-            // 'id_petugas' => $addedData['id_petugas'],
-            'nama_petugas' => $addedData['nama_petugas'],
-            'username' => $addedData['username'],
-            'password' => $addedData['password'],
-            'telp' => $addedData['telp'],
-            'level' => $addedData['level'],
-          
-        ]);
+        try {
+            $this->PenggunaModel->insert([
+                'username' => $addedData['username'],
+                'password' => md5($addedData['password']),
+                'role' =>  $addedData['level'],
+            ]);
+
+            $pengguna = $this->PenggunaModel->findByUsername($addedData['username']);
+            $this->PetugasModel->insert([
+                'id_pengguna' => $pengguna->id_pengguna,
+                'nama_petugas' => $addedData['nama_petugas'],
+                'telp' => $addedData['telp'],
+
+            ]);
+        } catch (\Exception $error) {
+            $this->PenggunaModel->db->transRollback();
+            throw $error;
+        }
+
+        $this->PenggunaModel->db->transCommit();
 
         return redirect()->to(base_url('Admin/Petugas'));
     }
