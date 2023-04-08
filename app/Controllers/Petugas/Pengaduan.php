@@ -21,7 +21,7 @@ class Pengaduan extends BaseController
     {
         $data = [
             'judul' => 'Pengaduan',
-            'dataPengaduan' => $this->PengaduanModel->getPengaduan()
+            'dataPengaduan' => $this->PengaduanModel->getPengaduan('petugas')
         ];
         // var_dump($data);
         return view('petugas\pengaduan\index', $data);
@@ -31,7 +31,7 @@ class Pengaduan extends BaseController
 
         $data = [
             'judul' => 'Tanggapi Pengaduan',
-            'dataPengaduan' => $this->PengaduanModel->getPengaduan($id)
+            'dataPengaduan' => $this->PengaduanModel->getPengaduan('petugas', $id)
 
         ];
         // var_dump($data);

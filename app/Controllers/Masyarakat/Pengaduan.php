@@ -18,7 +18,7 @@ class Pengaduan extends BaseController
     {
         $data = [
             'judul' => 'Pengaduan',
-            'dataPengaduan' => $this->PengaduanModel->getPengaduan()
+            'dataPengaduan' => $this->PengaduanModel->getPengaduan('masyarakat')
         ];
         return view('masyarakat\pengaduan\index', $data);
     }
@@ -59,7 +59,7 @@ class Pengaduan extends BaseController
     public function hapus()
     {
         $id = $this->request->getPost('id_pengaduan');
-        $getOnePengaduan = $this->PengaduanModel->getPengaduan($id);
+        $getOnePengaduan = $this->PengaduanModel->getPengaduan('masyarakat', $id);
 
         if (isset($getOnePengaduan)) {
             $this->PengaduanModel->delete($id);

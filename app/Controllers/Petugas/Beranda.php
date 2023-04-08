@@ -1,6 +1,7 @@
 <?php
 
 namespace App\Controllers\Petugas;
+
 use App\Controllers\BaseController;
 
 use App\Models\MasyarakatModel;
@@ -19,10 +20,10 @@ class Beranda extends BaseController
         // $session = session(); 
         // $akses = $session->get('logged_in');
 
-        
+
         // redirect()->to(base_url('/petugas/login'));
-     
-        
+
+
     }
 
     public function index()
@@ -32,8 +33,8 @@ class Beranda extends BaseController
             'judul' => 'Beranda',
             'Masyarakat' => $this->MasyarakatModel->getMasyarakat(),
             'Petugas' => $this->PetugasModel->getPetugas(),
-            'Pengaduan' => $this->PengaduanModel->getPengaduan(),
+            'Pengaduan' => $this->PengaduanModel->getPengaduan('petugas'),
         ];
-        return view('petugas\beranda\index',$data);
+        return view('petugas\beranda\index', $data);
     }
 }

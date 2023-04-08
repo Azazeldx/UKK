@@ -38,7 +38,7 @@
             <ul class="navbar-nav ml-auto">
                 <!-- Messages Dropdown Menu -->
                 <li class="nav-item dropdown">
-                    Logout
+                    <a href="<?= base_url('home/logout'); ?>">Log out</a>
                 </li>
                 <!-- Notifications Dropdown Menu -->
 
@@ -62,7 +62,8 @@
                         <img src="<?= base_url() ?>/AdminLTE-3.0.5/dist/img/user2-160x160.jpg" class="img-circle elevation-2" alt="User Image">
                     </div>
                     <div class="info">
-                        <a href="#" class="d-block">Putu Ade Pranata <br> Role: Admin</a>
+                        <a href="#" class="d-block"><?php $session = session();
+                                                    echo $session->get('nama'); ?> <br> Role: Masyarakat</a>
                     </div>
                 </div>
 

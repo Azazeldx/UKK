@@ -1,6 +1,7 @@
 <?php
 
 namespace App\Controllers\Admin;
+
 use App\Controllers\BaseController;
 
 use App\Models\MasyarakatModel;
@@ -23,8 +24,8 @@ class Beranda extends BaseController
             'judul' => 'Beranda',
             'Masyarakat' => $this->MasyarakatModel->getMasyarakat(),
             'Petugas' => $this->PetugasModel->getPetugas(),
-            'Pengaduan' => $this->PengaduanModel->getPengaduan(),
+            'Pengaduan' => $this->PengaduanModel->getPengaduan('admin'),
         ];
-        return view('admin\beranda\index',$data);
+        return view('admin\beranda\index', $data);
     }
 }

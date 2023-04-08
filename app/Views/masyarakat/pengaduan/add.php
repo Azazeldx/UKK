@@ -17,9 +17,9 @@
     <!-- Google Font: Source Sans Pro -->
     <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700" rel="stylesheet">
     <style>
-    .sidebar a {
-        color: white;
-    }
+        .sidebar a {
+            color: white;
+        }
     </style>
 </head>
 
@@ -38,7 +38,7 @@
             <ul class="navbar-nav ml-auto">
                 <!-- Messages Dropdown Menu -->
                 <li class="nav-item dropdown">
-                    Logout
+                    <a href="<?= base_url('home/logout'); ?>">Log out</a>
                 </li>
                 <!-- Notifications Dropdown Menu -->
 
@@ -50,8 +50,7 @@
         <aside class="main-sidebar sidebar-dark text-white bg-danger elevation-4">
             <!-- Brand Logo -->
             <a href="<?= base_url() ?>/AdminLTE-3.0.5/index3.html" class="brand-link">
-                <img src="<?= base_url() ?>/AdminLTE-3.0.5/dist/img/AdminLTELogo.png" alt="AdminLTE Logo"
-                    class="brand-image img-circle elevation-3" style="opacity: .8">
+                <img src="<?= base_url() ?>/AdminLTE-3.0.5/dist/img/AdminLTELogo.png" alt="AdminLTE Logo" class="brand-image img-circle elevation-3" style="opacity: .8">
                 <span class="brand-text font-weight-light">PengaduanMasyarakat</span>
             </a>
 
@@ -60,18 +59,17 @@
                 <!-- Sidebar user (optional) -->
                 <div class="user-panel mt-3 pb-3 mb-3 d-flex">
                     <div class="image">
-                        <img src="<?= base_url() ?>/AdminLTE-3.0.5/dist/img/user2-160x160.jpg"
-                            class="img-circle elevation-2" alt="User Image">
+                        <img src="<?= base_url() ?>/AdminLTE-3.0.5/dist/img/user2-160x160.jpg" class="img-circle elevation-2" alt="User Image">
                     </div>
                     <div class="info">
-                        <a href="#" class="d-block">Putu Ade Pranata <br> Role: Admin</a>
+                        <a href="#" class="d-block"><?php $session = session();
+                                                    echo $session->get('nama'); ?> <br> Role: Masyarakat</a>
                     </div>
                 </div>
 
                 <!-- Sidebar Menu -->
                 <nav class="mt-2">
-                    <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu"
-                        data-accordion="false">
+                    <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
                         <!-- Add icons to the links using the .nav-icon class
                with font-awesome or any other icon font library -->
 
@@ -137,27 +135,23 @@
                                         </div>
 
                                         <div class="card-body">
-                                            <form class="form-horizontal" action="<?= base_url('Masyarakat/pengaduan/proses_tambah'); ?>"
-                                                method="POST" enctype="multipart/form-data">
+                                            <form class="form-horizontal" action="<?= base_url('Masyarakat/pengaduan/proses_tambah'); ?>" method="POST" enctype="multipart/form-data">
                                                 <div class="form-group row">
                                                     <label for="nama_jabatan" class="col-4 col-form-label">Isi Laporan
                                                     </label>
                                                     <div class="col-8">
-                                                        <textarea  class="form-control" id="isi_laporan"
-                                                            name="isi_laporan" cols="30" rows="10"></textarea>
+                                                        <textarea class="form-control" id="isi_laporan" name="isi_laporan" cols="30" rows="10"></textarea>
                                                     </div>
                                                 </div>
                                                 <div class="form-group row">
                                                     <label for="nama_jabatan" class="col-4 col-form-label">Foto
                                                     </label>
                                                     <div class="col-8">
-                                                        <input type="File" class="form-control" id="foto" name="foto"
-                                                            placeholder="Nama Jabatan">
+                                                        <input type="File" class="form-control" id="foto" name="foto" placeholder="Nama Jabatan">
                                                     </div>
                                                 </div>
                                                 <div class="modal-footer justify-content-between">
-                                                    <button type="button" class="btn btn-default"
-                                                        data-dismiss="modal">Batal</button>
+                                                    <button type="button" class="btn btn-default" data-dismiss="modal">Batal</button>
                                                     <button type="submit" class="btn btn-primary">Simpan</button>
                                                 </div>
 

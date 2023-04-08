@@ -38,7 +38,7 @@
       <ul class="navbar-nav ml-auto">
         <!-- Messages Dropdown Menu -->
         <li class="nav-item dropdown">
-          Logout
+          <a href="<?= base_url('petugas/login/logout'); ?>">Log out</a>
         </li>
         <!-- Notifications Dropdown Menu -->
 
@@ -62,7 +62,9 @@
             <img src="<?= base_url() ?>/AdminLTE-3.0.5/dist/img/user2-160x160.jpg" class="img-circle elevation-2" alt="User Image">
           </div>
           <div class="info">
-            <a href="#" class="d-block">Putu Ade Pranata <br> Role: Admin</a>
+            <a href="#" class="d-block"><?php $session = session();
+                                        echo $session->get('nama_petugas'); ?> <br> Role: <?php $session = session();
+                                                                                          echo $session->get('level'); ?></a>
           </div>
         </div>
 
@@ -208,13 +210,13 @@
                         <tr>
                           <td><?= $index + 1; ?></td>
                           <td><?= $pengaduan['id_pengaduan']; ?></td>
-                          <td><?= $pengaduan['tgl_pengaduan']; ?></td>
+                          <td><?= $pengaduan['tanggal']; ?></td>
                           <td><?= $pengaduan['nik']; ?></td>
-                          <td><?= $pengaduan['isi_laporan']; ?></td>
+                          <td><?= $pengaduan['laporan']; ?></td>
                           <td><img src="<?= base_url('/images/' . $pengaduan['foto']) ?>" alt="" width="100"></td>
                           <td><?= $pengaduan['status']; ?></td>
                           <td class="d-flex justify-content-center">
-                            <button type="button" class="btn btn-success m-1 btn-edit" data-toggle="modal" data-target="#modal-ubah" data-whatever="@getbootstrap" data-id_pengaduan="<?= $pengaduan['id_pengaduan']; ?>" data-tgl_pengaduan="<?= $pengaduan['tanggal']; ?>" data-nik="<?= $pengaduan['nik']; ?>" data-isi_laporan="<?= $pengaduan['isi_laporan']; ?>" data-foto="<?= $pengaduan['foto']; ?>" data-status="<?= $pengaduan['status']; ?>">
+                            <button type="button" class="btn btn-success m-1 btn-edit" data-toggle="modal" data-target="#modal-ubah" data-whatever="@getbootstrap" data-id_pengaduan="<?= $pengaduan['id_pengaduan']; ?>" data-tgl_pengaduan="<?= $pengaduan['tanggal']; ?>" data-nik="<?= $pengaduan['nik']; ?>" data-isi_laporan="<?= $pengaduan['laporan']; ?>" data-foto="<?= $pengaduan['foto']; ?>" data-status="<?= $pengaduan['status']; ?>">
                               <i class="fas fa-edit"></i>
                               Ubah
                             </button>

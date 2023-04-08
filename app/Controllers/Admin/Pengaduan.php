@@ -1,6 +1,7 @@
 <?php
 
 namespace App\Controllers\Admin;
+
 use App\Controllers\BaseController;
 use App\Models\PengaduanModel;
 
@@ -15,7 +16,7 @@ class Pengaduan extends BaseController
     {
         $data = [
             'judul' => 'Pengaduan',
-            'dataPengaduan' => $this->PengaduanModel->getPengaduan()
+            'dataPengaduan' => $this->PengaduanModel->getPengaduan('admin')
         ];
         return view('admin\pengaduan\index', $data);
     }
