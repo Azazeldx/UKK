@@ -17,7 +17,7 @@
     <!-- Google Font: Source Sans Pro -->
     <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700" rel="stylesheet">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css" rel="stylesheet">
-    
+
     <style>
         .sidebar a {
             color: white;
@@ -52,8 +52,7 @@
         <aside class="main-sidebar sidebar-dark text-white bg-success elevation-4">
             <!-- Brand Logo -->
             <a href="<?= base_url() ?>/AdminLTE-3.0.5/index3.html" class="brand-link">
-                <img src="<?= base_url() ?>/AdminLTE-3.0.5/dist/img/AdminLTELogo.png" alt="AdminLTE Logo"
-                    class="brand-image img-circle elevation-3" style="opacity: .8">
+                <img src="<?= base_url() ?>/AdminLTE-3.0.5/dist/img/AdminLTELogo.png" alt="AdminLTE Logo" class="brand-image img-circle elevation-3" style="opacity: .8">
                 <span class="brand-text font-weight-light">PengaduanMasyarakat</span>
             </a>
 
@@ -62,8 +61,7 @@
                 <!-- Sidebar user (optional) -->
                 <div class="user-panel mt-3 pb-3 mb-3 d-flex">
                     <div class="image">
-                        <img src="<?= base_url() ?>/AdminLTE-3.0.5/dist/img/user2-160x160.jpg"
-                            class="img-circle elevation-2" alt="User Image">
+                        <img src="<?= base_url() ?>/AdminLTE-3.0.5/dist/img/user2-160x160.jpg" class="img-circle elevation-2" alt="User Image">
                     </div>
                     <div class="info">
                         <a href="#" class="d-block">Putu Ade Pranata <br> Role: Petugas</a>
@@ -72,8 +70,7 @@
 
                 <!-- Sidebar Menu -->
                 <nav class="mt-2">
-                    <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu"
-                        data-accordion="false">
+                    <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
                         <!-- Add icons to the links using the .nav-icon class
                with font-awesome or any other icon font library -->
 
@@ -134,53 +131,50 @@
                                 </div>
 
                                 <div class="card-body">
-                                    <form class="form-horizontal" action="<?= base_url('petugas/pengaduan/proses_tambah_tanggapan'); ?>"
-                                        method="POST">
+                                    <form class="form-horizontal" action="<?= base_url('petugas/pengaduan/proses_tambah_tanggapan'); ?>" method="POST">
                                         <div class="form-group row">
-                                            <label for="nik" class="col-4 col-form-label">ID Pengaduan</label>
                                             <div class="col-8">
-                                                <input type="text" name="id_pengaduan" id="id_pengaduan" value="<?= $dataPengaduan->id_pengaduan ?>">
+                                                <input type="hidden" name="id_pengaduan" id="id_pengaduan" value="<?= $dataPengaduan->id_pengaduan ?>">
                                                 <!-- <?= $dataPengaduan->id_pengaduan ?> -->
                                             </div>
                                         </div>
-                                        <div class="form-group row">
+                                        <!-- <div class="form-group row">
                                             <label for="nik" class="col-4 col-form-label">NIK</label>
                                             <div class="col-8">
                                                 <?= $dataPengaduan->nik ?>
                                             </div>
-                                        </div>
+                                        </div> -->
                                         <div class="form-group row">
                                             <label for="nama" class="col-4 col-form-label">Nama</label>
                                             <div class="col-8">
-                                            <?= $dataPengaduan->nama ?>
+                                                <?= $dataPengaduan->nama ?>
                                             </div>
                                         </div>
                                         <div class="form-group row">
                                             <label for="Tanggal" class="col-4 col-form-label">Tanggal</label>
                                             <div class="col-8">
-                                                <?= $dataPengaduan->tgl_pengaduan ?>
-                                                
+                                                <?= $dataPengaduan->tanggal ?>
+
                                             </div>
                                         </div>
                                         <div class="form-group row">
                                             <label for="Isi Laporan" class="col-4 col-form-label">Isi Laporan</label>
                                             <div class="col-8">
-                                            <?= $dataPengaduan->isi_laporan ?>
+                                                <?= $dataPengaduan->laporan ?>
 
-                                            
+
                                             </div>
                                         </div>
                                         <div class="form-group row">
                                             <label for="keterangan" class="col-4 col-form-label">Foto</label>
                                             <div class="col-8">
-                                                <img src="<?php echo base_url('images/'.$dataPengaduan->foto) ?>" alt="" style="width:500px;">
+                                                <img src="<?php echo base_url('images/' . $dataPengaduan->foto) ?>" alt="" style="width:500px;">
                                             </div>
                                         </div>
                                         <div class="form-group row">
                                             <label for="tanggapan" class="col-4 col-form-label">Tanggapan</label>
                                             <div class="col-8">
-                                                <textarea name="tanggapan" id="tanggapan" cols="30" rows="10"
-                                                    class="form-control"></textarea>
+                                                <textarea name="tanggapan" id="tanggapan" cols="30" rows="10" class="form-control"></textarea>
                                             </div>
                                         </div>
                                         <div class="form-group row">

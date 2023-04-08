@@ -17,9 +17,9 @@
     <!-- Google Font: Source Sans Pro -->
     <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700" rel="stylesheet">
     <style>
-    .sidebar a {
-        color: white;
-    }
+        .sidebar a {
+            color: white;
+        }
     </style>
 </head>
 
@@ -50,8 +50,7 @@
         <aside class="main-sidebar sidebar-dark text-white bg-danger elevation-4">
             <!-- Brand Logo -->
             <a href="<?= base_url() ?>/AdminLTE-3.0.5/index3.html" class="brand-link">
-                <img src="<?= base_url() ?>/AdminLTE-3.0.5/dist/img/AdminLTELogo.png" alt="AdminLTE Logo"
-                    class="brand-image img-circle elevation-3" style="opacity: .8">
+                <img src="<?= base_url() ?>/AdminLTE-3.0.5/dist/img/AdminLTELogo.png" alt="AdminLTE Logo" class="brand-image img-circle elevation-3" style="opacity: .8">
                 <span class="brand-text font-weight-light">PengaduanMasyarakat</span>
             </a>
 
@@ -60,8 +59,7 @@
                 <!-- Sidebar user (optional) -->
                 <div class="user-panel mt-3 pb-3 mb-3 d-flex">
                     <div class="image">
-                        <img src="<?= base_url() ?>/AdminLTE-3.0.5/dist/img/user2-160x160.jpg"
-                            class="img-circle elevation-2" alt="User Image">
+                        <img src="<?= base_url() ?>/AdminLTE-3.0.5/dist/img/user2-160x160.jpg" class="img-circle elevation-2" alt="User Image">
                     </div>
                     <div class="info">
                         <a href="#" class="d-block">Putu Ade Pranata <br> Role: Admin</a>
@@ -70,8 +68,7 @@
 
                 <!-- Sidebar Menu -->
                 <nav class="mt-2">
-                    <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu"
-                        data-accordion="false">
+                    <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
                         <!-- Add icons to the links using the .nav-icon class
                with font-awesome or any other icon font library -->
 
@@ -133,8 +130,7 @@
                                         <i class="fas fa-plus"></i>
                                         Tambah
                                     </button> -->
-                                    <a href="<?= base_url('Masyarakat/Pengaduan/form_add'); ?>"
-                                        class="btn btn-outline-primary">
+                                    <a href="<?= base_url('Masyarakat/Pengaduan/form_add'); ?>" class="btn btn-outline-primary">
                                         <i class="fas fa-plus"></i>
                                         Tambah
                                     </a>
@@ -144,9 +140,8 @@
                                     <table id="example1" class="table table-bordered table-striped">
                                         <thead>
                                             <tr>
-                                                <th>No</th>                                               
-                                                <th>NIK</th>  
-                                                <th>Nama</th>                                          
+                                                <th>No</th>
+                                                <th>Nama</th>
                                                 <th>Tanggal Pengaduan</th>
                                                 <th>Isi Pengaduan</th>
                                                 <th>Foto</th>
@@ -156,29 +151,24 @@
                                         </thead>
                                         <tbody>
                                             <?php foreach ($dataPengaduan as $index => $pengaduan) : ?>
-                                            <tr>
-                                                <td><?= $index + 1; ?></td>
-                                                <td><?= $pengaduan['nik']; ?></td>
-                                                <td><?= $pengaduan['nama']; ?></td>
-                                                <td><?= $pengaduan['tgl_pengaduan']; ?></td>
-                                                <td><?= $pengaduan['isi_laporan']; ?></td>
-                                                <td><img src="<?= base_url('/images/' . $pengaduan['foto']) ?>" alt="" width="100"></td>
+                                                <tr>
+                                                    <td><?= $index + 1; ?></td>
+                                                    <td><?= $pengaduan['nama']; ?></td>
+                                                    <td><?= $pengaduan['tanggal']; ?></td>
+                                                    <td><?= $pengaduan['laporan']; ?></td>
+                                                    <td><img src="<?= base_url('/images/' . $pengaduan['foto']) ?>" alt="" width="100"></td>
 
-                                                <!--  -->
-                                                <td><?php if ($pengaduan['status']=== '0') {echo "Diajukan";
-                                                } else {
-                                                    echo ($pengaduan['status']);
-                                                }?></td>
-                                                
-                                                <td class="d-flex justify-content-center">
-                                                    
-                                                    <button type="button" class="btn btn-danger m-1 btn-delete"
-                                                        data-id="<?= $pengaduan['id_pengaduan']; ?>">
-                                                        <i class="fas fa-trash"></i>
-                                                        Hapus
-                                                    </button>
-                                                </td>
-                                            </tr>
+                                                    <!--  -->
+                                                    <td><?= $pengaduan['status']; ?></td>
+
+                                                    <td class="d-flex justify-content-center">
+
+                                                        <button type="button" class="btn btn-danger m-1 btn-delete" data-id="<?= $pengaduan['id_pengaduan']; ?>">
+                                                            <i class="fas fa-trash"></i>
+                                                            Hapus
+                                                        </button>
+                                                    </td>
+                                                </tr>
                                             <?php endforeach; ?>
                                         </tbody>
                                     </table>
@@ -197,29 +187,29 @@
         </div>
         <!-- /.content-wrapper -->
         <div class="modal fade" style="display: none;" id="modal-hapus">
-                <div class="modal-dialog">
-                    <div class="modal-content">
-                        <form action="<?= base_url('Masyarakat/Pengaduan/hapus/'); ?>" method="post">
-                            <div class="modal-header bg-danger">
-                                <h4 class="modal-title">Hapus Data</h4>
-                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                    <span aria-hidden="true">&times;</span>
-                                </button>
-                            </div>
-                            <div class="modal-body">
-                                <p>Yakin Data Dengan ID Pengaduan <span class="id_pengaduan-confirm"></span> Ini Akan Dihapus ?</p>
-                                <input type="hidden" name="id_pengaduan" class="id_pengaduan" id="id_pengaduan">
-                            </div>
-                            <div class="modal-footer justify-content-between">
-                                <button type="button" class="btn btn-outline-light" data-dismiss="modal">Tidak</button>
-                                <button type="submit" class="btn btn-outline-light bg-danger">Iya</button>
-                            </div>
-                        </form>
-                    </div>
-
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <form action="<?= base_url('Masyarakat/Pengaduan/hapus/'); ?>" method="post">
+                        <div class="modal-header bg-danger">
+                            <h4 class="modal-title">Hapus Data</h4>
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                        </div>
+                        <div class="modal-body">
+                            <p>Yakin Data Dengan ID Pengaduan <span class="id_pengaduan-confirm"></span> Ini Akan Dihapus ?</p>
+                            <input type="hidden" name="id_pengaduan" class="id_pengaduan" id="id_pengaduan">
+                        </div>
+                        <div class="modal-footer justify-content-between">
+                            <button type="button" class="btn btn-outline-light" data-dismiss="modal">Tidak</button>
+                            <button type="submit" class="btn btn-outline-light bg-danger">Iya</button>
+                        </div>
+                    </form>
                 </div>
 
             </div>
+
+        </div>
 
         <footer class="main-footer">
             <div class="float-right d-none d-sm-block">

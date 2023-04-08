@@ -30,14 +30,16 @@ class Home extends BaseController
 
         if ($validUser) {
             $ses_masyarakat = [
-                'nik' => $validUser->nik,
+                'id_masyarakat' => $validUser->id_masyarakat,
                 'nama' => $validUser->nama,
                 'username' => $validUser->username,
                 'telp' => $validUser->telp,
                 'logged_in' => TRUE,
                 'role' => $validUser->role
             ];
+
             $session->set($ses_masyarakat);
+
             return redirect()->to(base_url('/masyarakat/beranda'));
         } else {
 
@@ -49,7 +51,7 @@ class Home extends BaseController
             // // $this->session->set_flashdata('error', 'Username atau password salah');
 
             // $this->session->set_flashdata('error', 'Username atau Password salah');
-            return $this->load->view('home');
+            return view('home');
             //  session()->setFlashdata("error", "Username atau password salah");
             //  return redirect()->to(base_url('/home'));
 

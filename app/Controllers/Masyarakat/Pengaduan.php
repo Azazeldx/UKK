@@ -1,11 +1,14 @@
 <?php
 
 namespace App\Controllers\Masyarakat;
+
 use App\Controllers\BaseController;
 use App\Models\PengaduanModel;
 
 class Pengaduan extends BaseController
 {
+    protected $PengaduanModel;
+
     public function __construct()
     {
         $this->PengaduanModel = new PengaduanModel();
@@ -18,8 +21,8 @@ class Pengaduan extends BaseController
             'dataPengaduan' => $this->PengaduanModel->getPengaduan()
         ];
         return view('masyarakat\pengaduan\index', $data);
-    } 
-    
+    }
+
     public function form_add()
     {
         $data = [
@@ -35,17 +38,18 @@ class Pengaduan extends BaseController
         $image = $this->request->getFile('foto');
         $session = session();
 
-        // var_dump($addedData);
-        // var_dump($image);
-
-        $this->PengaduanModel->insert([
+        $data = [
             // 'id_pengaduan' => $addedData['id_pengaduan'],
-            'tgl_pengaduan' => date("Y-m-d"),
-            'nik' => $session->get('nik'),
-            'isi_laporan' => $addedData['isi_laporan'],
+            'tanggal' => date("Y-m-d"),
+            'id_masyarakat' => $session->get('id_masyarakat'),
+            'laporan' => $addedData['isi_laporan'],
             'foto' => $image->getName(),
-            'status' =>"0",
-        ]);
+            'status' => "antri",
+        ];
+
+        // var_dump($data);
+
+        $this->PengaduanModel->insert($data);
 
         $image->move('images');
 
