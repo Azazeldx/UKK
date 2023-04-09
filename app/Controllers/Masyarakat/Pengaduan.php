@@ -4,14 +4,17 @@ namespace App\Controllers\Masyarakat;
 
 use App\Controllers\BaseController;
 use App\Models\PengaduanModel;
+use App\Models\TanggapanModel;
 
 class Pengaduan extends BaseController
 {
     protected $PengaduanModel;
+    protected $TanggapanModel;
 
     public function __construct()
     {
         $this->PengaduanModel = new PengaduanModel();
+        $this->TanggapanModel = new TanggapanModel();
     }
 
     public function index()
@@ -65,5 +68,17 @@ class Pengaduan extends BaseController
         }
 
         return redirect()->to(base_url('Masyarakat/Pengaduan'));
+    }
+
+    public function detail($id = null)
+    {
+
+        $data = [
+            'judul' => 'Tanggapi Pengaduan',
+            'dataPengaduan' => $this->PengaduanModel->getPengaduan('petugas', $id),
+            'dataTanggapan' => $this->TanggapanModel->getTanggapanByPengaduanWithPetugas($id)
+        ];
+
+        return view('/masyarakat/pengaduan/detail', $data);
     }
 }

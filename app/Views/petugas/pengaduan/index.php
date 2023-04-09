@@ -163,7 +163,7 @@
                                                     <td class="d-flex justify-content-center">
 
 
-                                                        <a class="btn btn-primary m-1 btn-delete" href="<?= base_url('/petugas/pengaduan/form_add/' . $pengaduan['id_pengaduan']) ?>">
+                                                        <a class="btn btn-primary m-1 btn-delete" href="<?= base_url('/Petugas/Pengaduan/detail/' . $pengaduan['id_pengaduan']) ?>">
                                                             <i class="fas fa-paper-plane"></i>
                                                             Tanggapi
                                                         </a>

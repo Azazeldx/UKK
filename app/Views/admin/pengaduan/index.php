@@ -180,7 +180,7 @@
                           <td><img src="<?= base_url('/images/' . $pengaduan['foto']) ?>" alt="" width="100"></td>
                           <td><?= $pengaduan['status']; ?></td>
                           <td class="mx-auto">
-                            <a class="btn btn-primary m-1 btn-delete" href="<?= base_url('/admin/pengaduan/form_add/' . $pengaduan['id_pengaduan']) ?>">
+                            <a class="btn btn-primary m-1" href="<?= base_url('/Admin/Pengaduan/detail/' . $pengaduan['id_pengaduan']) ?>">
                               <i class="fa fa-eye"></i>
                               Detail
                             </a>
@@ -227,7 +227,7 @@
   <div class="modal fade" style="display: none;" id="modal-hapus">
     <div class="modal-dialog">
       <div class="modal-content">
-        <form action="<?= base_url('admin/Pengaduan/hapus/'); ?>" method="post">
+        <form action="<?= base_url('Admin/Pengaduan/hapus/'); ?>" method="post">
           <div class="modal-header bg-danger">
             <h4 class="modal-title">Hapus Data</h4>
             <button type="button" class="close" data-dismiss="modal" aria-label="Close">

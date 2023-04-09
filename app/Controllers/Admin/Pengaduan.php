@@ -26,7 +26,7 @@ class Pengaduan extends BaseController
         return view('admin\pengaduan\index', $data);
     }
 
-    public function form_add($id = null)
+    public function detail($id = null)
     {
 
         $data = [

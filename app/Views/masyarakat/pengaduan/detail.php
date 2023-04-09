@@ -16,6 +16,8 @@
     <link rel="stylesheet" href="<?= base_url() ?>/AdminLTE-3.2.0/dist/css/adminlte.min.css">
     <!-- Google Font: Source Sans Pro -->
     <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css" rel="stylesheet">
+
     <style>
         .sidebar a {
             color: white;
@@ -38,7 +40,7 @@
             <ul class="navbar-nav ml-auto">
                 <!-- Messages Dropdown Menu -->
                 <li class="nav-item dropdown">
-                    <a href="<?= base_url('home/logout'); ?>">Log out</a>
+                    <a href="<?= base_url('petugas/login/logout'); ?>">Log out</a>
                 </li>
                 <!-- Notifications Dropdown Menu -->
 
@@ -92,7 +94,6 @@
                         </li>
 
 
-
                     </ul>
                 </nav>
                 <!-- /.sidebar-menu -->
@@ -127,55 +128,84 @@
                         <div class="col-12">
                             <div class="card">
                                 <div class="card-header">
-                                    <!-- <button type="button" class="btn btn-outline-primary" data-toggle="modal" data-target="#modal-tambah">
-                                        <i class="fas fa-plus"></i>
-                                        Tambah
-                                    </button> -->
-                                    <a href="<?= base_url('Masyarakat/Pengaduan/form_add'); ?>" class="btn btn-outline-primary">
-                                        <i class="fas fa-plus"></i>
-                                        Tambah
-                                    </a>
+                                    Menambahkan tanggapan
                                 </div>
 
                                 <div class="card-body">
-                                    <table id="example1" class="table table-bordered table-striped">
-                                        <thead>
-                                            <tr>
-                                                <th>No</th>
-                                                <th>Nama</th>
-                                                <th>Tanggal Pengaduan</th>
-                                                <th>Isi Pengaduan</th>
-                                                <th>Foto</th>
-                                                <th>Status</th>
-                                                <th>Aksi</th>
-                                            </tr>
-                                        </thead>
-                                        <tbody>
-                                            <?php foreach ($dataPengaduan as $index => $pengaduan) : ?>
+                                    <form class="form-horizontal" action="<?= base_url('petugas/pengaduan/proses_tambah_tanggapan'); ?>" method="POST">
+                                        <div class="form-group row">
+                                            <div class="col-8">
+                                                <input type="hidden" name="id_pengaduan" id="id_pengaduan" value="<?= $dataPengaduan->id_pengaduan ?>">
+                                                <!-- <?= $dataPengaduan->id_pengaduan ?> -->
+                                            </div>
+                                        </div>
+                                        <!-- <div class="form-group row">
+                                            <label for="nik" class="col-4 col-form-label">NIK</label>
+                                            <div class="col-8">
+                                                <?= $dataPengaduan->nik ?>
+                                            </div>
+                                        </div> -->
+                                        <div class="form-group row">
+                                            <label for="nama" class="col-4 col-form-label">Nama</label>
+                                            <div class="col-8">
+                                                <?= $dataPengaduan->nama ?>
+                                            </div>
+                                        </div>
+                                        <div class="form-group row">
+                                            <label for="Tanggal" class="col-4 col-form-label">Tanggal</label>
+                                            <div class="col-8">
+                                                <?= $dataPengaduan->tanggal ?>
+
+                                            </div>
+                                        </div>
+                                        <div class="form-group row">
+                                            <label for="Isi Laporan" class="col-4 col-form-label">Isi Laporan</label>
+                                            <div class="col-8">
+                                                <?= $dataPengaduan->laporan ?>
+
+
+                                            </div>
+                                        </div>
+                                        <div class="form-group row">
+                                            <label for="keterangan" class="col-4 col-form-label">Foto</label>
+                                            <div class="col-8">
+                                                <img src="<?php echo base_url('images/' . $dataPengaduan->foto) ?>" alt="" style="width:500px;">
+                                            </div>
+                                        </div>
+
+                                        <div class="form-group row">
+                                            <label for="Status" class="col-4 col-form-label">Status</label>
+                                            <div class="col-8">
+                                                <?= $dataPengaduan->status ?>
+                                            </div>
+                                        </div>
+
+
+                                    </form>
+
+                                    <?php if ($dataTanggapan) : ?>
+                                        <hr>
+                                        <table class="table">
+                                            <thead>
                                                 <tr>
-                                                    <td><?= $index + 1; ?></td>
-                                                    <td><?= $pengaduan['nama']; ?></td>
-                                                    <td><?= $pengaduan['tanggal']; ?></td>
-                                                    <td><?= $pengaduan['laporan']; ?></td>
-                                                    <td><img src="<?= base_url('/images/' . $pengaduan['foto']) ?>" alt="" width="100"></td>
-
-                                                    <!--  -->
-                                                    <td><?= $pengaduan['status']; ?></td>
-
-                                                    <td class="d-flex justify-content-center">
-                                                        <a class="btn btn-primary m-1" href="<?= base_url('/Masyarakat/Pengaduan/detail/' . $pengaduan['id_pengaduan']) ?>">
-                                                            <i class="fa fa-eye"></i>
-                                                            Detail
-                                                        </a>
-                                                        <button type="button" class="btn btn-danger m-1 btn-delete" data-id="<?= $pengaduan['id_pengaduan']; ?>">
-                                                            <i class="fas fa-trash"></i>
-                                                            Hapus
-                                                        </button>
-                                                    </td>
+                                                    <th scope="col">No</th>
+                                                    <th scope="col">Nama</th>
+                                                    <th scope="col">Tanggapan</th>
+                                                    <th scope="col">Tanggal</th>
                                                 </tr>
-                                            <?php endforeach; ?>
-                                        </tbody>
-                                    </table>
+                                            </thead>
+                                            <tbody>
+                                                <?php foreach ($dataTanggapan as $index => $tanggapan) : ?>
+                                                    <tr>
+                                                        <th scope="row"><?= $index + 1 ?></th>
+                                                        <td><?= $tanggapan['nama_petugas'] ?></td>
+                                                        <td><?= $tanggapan['tanggapan'] ?></td>
+                                                        <td><?= $tanggapan['tanggal'] ?></td>
+                                                    </tr>
+                                                <?php endforeach; ?>
+                                            </tbody>
+                                        </table>
+                                    <?php endif; ?>
                                 </div>
 
                             </div>
@@ -190,19 +220,47 @@
             <!-- /.content -->
         </div>
         <!-- /.content-wrapper -->
+
+        <div class="modal fade" id="modal-ubah" style="display: none;" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header bg-success">
+                        <h4 class="modal-title">Ubah Tanggapan</h4>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">×</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        <form action="<?= base_url('Petugas/Pengaduan/proses_edit_tanggapan'); ?>" method="POST">
+                            <input type="hidden" name="id_tanggapan" class="id_tanggapan">
+                            <div class="form-group">
+                                <textarea name="tanggapan" id="tanggapan" cols="30" rows="10" class="form-control tanggapan" placeholder="Ubah tanggapan"></textarea>
+                            </div>
+                            <div class="modal-footer justify-content-between">
+                                <button type="button" class="btn btn-default" data-dismiss="modal">Batal</button>
+                                <button type="submit" class="btn btn-success btn-submit-ubah">Ubah</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+
         <div class="modal fade" style="display: none;" id="modal-hapus">
             <div class="modal-dialog">
                 <div class="modal-content">
-                    <form action="<?= base_url('Masyarakat/Pengaduan/hapus/'); ?>" method="post">
+                    <form action="<?= base_url('Petugas/Pengaduan/proses_hapus_tanggapan'); ?>" method="post">
                         <div class="modal-header bg-danger">
-                            <h4 class="modal-title">Hapus Data</h4>
+                            <h4 class="modal-title">Hapus Tanggapan</h4>
                             <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                                 <span aria-hidden="true">&times;</span>
                             </button>
                         </div>
                         <div class="modal-body">
-                            <p>Yakin Data Dengan ID Pengaduan <span class="id_pengaduan-confirm"></span> Ini Akan Dihapus ?</p>
-                            <input type="hidden" name="id_pengaduan" class="id_pengaduan" id="id_pengaduan">
+                            <p>Yakin Tanggapan Ini Akan Dihapus ?</p>
+                            <input type="hidden" name="id_tanggapan" class="id_tanggapan" id="id_tanggapan">
                         </div>
                         <div class="modal-footer justify-content-between">
                             <button type="button" class="btn btn-outline-light" data-dismiss="modal">Tidak</button>
@@ -242,13 +300,27 @@
 
     <script>
         $(document).ready(function() {
-            $('.btn-delete').on('click', function() {
-                const id = $(this).data('id');
+            $('.btn-edit').on('click', function() {
+                const id_tanggapan = $(this).data('id_tanggapan');
+                const tanggapan = $(this).data('tanggapan');
+                $('.id_tanggapan').val(id_tanggapan);
+                $('.tanggapan').val(tanggapan);
+                $('#modal-ubah').modal('show');
 
-                $('.id_pengaduan-confirm').text(id);
-                $('.id_pengaduan').val(id);
-                $('#modal-hapus').modal('show');
+                $('.tanggapan').keyup(function(event) {
+                    if (!event.target.value.length) {
+                        $('.btn-submit-ubah').prop('disabled', true)
+                    } else {
+                        $('.btn-submit-ubah').prop('disabled', false)
+                    }
+                })
             });
+
+            $('.btn-delete').on('click', function() {
+                const id_tanggapan = $(this).data('id_tanggapan')
+                $('.id_tanggapan').val(id_tanggapan);
+                $('#modal-hapus').modal('show');
+            })
         });
     </script>
 </body>

@@ -66,7 +66,7 @@
                     <div class="info">
                         <a href="#" class="d-block"><?php $session = session();
                                                     echo $session->get('nama_petugas'); ?> <br> Role: <?php $session = session();
-                                                                                                        echo $session->get('level'); ?></a>
+                                                                                            echo $session->get('level'); ?></a>
                     </div>
                 </div>
 
@@ -77,19 +77,44 @@
                with font-awesome or any other icon font library -->
 
                         <li class="nav-item">
-                            <a href="<?= base_url('admin/Beranda') ?>" class="nav-link" style="color:white;">
+                            <a href="<?= base_url('Admin/Beranda') ?>" class="nav-link" style="color:white;">
                                 <i class="nav-icon fas fa-th"></i>
                                 <p>
                                     Beranda
                                 </p>
                             </a>
                         </li>
-
                         <li class="nav-item">
-                            <a href="<?= base_url('admin/Pengaduan') ?>" class="nav-link" style="color:white;">
+                            <a href="<?= base_url('Admin/Masyarakat') ?>" class="nav-link" style="color:white;">
+                                <i class="nav-icon fas fa-th"></i>
+                                <p>
+                                    Masyarakat
+
+                                </p>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="<?= base_url('Admin/Petugas') ?>" class="nav-link" style="color:white;">
+                                <i class="nav-icon fas fa-th"></i>
+                                <p>
+                                    Petugas
+
+                                </p>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="<?= base_url('Admin/Pengaduan') ?>" class="nav-link" style="color:white;">
                                 <i class="nav-icon fas fa-th"></i>
                                 <p>
                                     Pengaduan
+                                </p>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="<?= base_url('Admin/Laporan') ?>" class="nav-link" style="color:white;">
+                                <i class="nav-icon fas fa-th"></i>
+                                <p>
+                                    Laporan
                                 </p>
                             </a>
                         </li>
