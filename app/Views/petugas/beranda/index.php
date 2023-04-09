@@ -9,18 +9,18 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
     <!-- Font Awesome -->
-    <link rel="stylesheet" href="<?= base_url() ?>/AdminLTE-3.0.5/plugins/fontawesome-free/css/all.min.css">
+    <link rel="stylesheet" href="<?= base_url() ?>/AdminLTE-3.2.0/plugins/fontawesome-free/css/all.min.css">
     <!-- Ionicons -->
     <link rel="stylesheet" href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
     <!-- overlayScrollbars -->
-    <link rel="stylesheet" href="<?= base_url() ?>/AdminLTE-3.0.5/dist/css/adminlte.min.css">
+    <link rel="stylesheet" href="<?= base_url() ?>/AdminLTE-3.2.0/dist/css/adminlte.min.css">
     <!-- Google Font: Source Sans Pro -->
     <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700" rel="stylesheet">
 
     <style>
-    .sidebar a {
-        color: white;
-    }
+        .sidebar a {
+            color: white;
+        }
     </style>
 </head>
 
@@ -39,7 +39,7 @@
             <ul class="navbar-nav ml-auto">
                 <!-- Messages Dropdown Menu -->
                 <li class="nav-item dropdown">
-                    <a href="<?= base_url('petugas/login/logout');?>">Log out</a>
+                    <a href="<?= base_url('petugas/login/logout'); ?>">Log out</a>
                 </li>
                 <!-- Notifications Dropdown Menu -->
 
@@ -50,9 +50,8 @@
         <!-- Main Sidebar Container -->
         <aside class="main-sidebar sidebar-dark text-white bg-success elevation-4">
             <!-- Brand Logo -->
-            <a href="<?= base_url() ?>/AdminLTE-3.0.5/index3.html" class="brand-link">
-                <img src="<?= base_url() ?>/AdminLTE-3.0.5/dist/img/AdminLTELogo.png" alt="AdminLTE Logo"
-                    class="brand-image img-circle elevation-3" style="opacity: .8">
+            <a href="<?= base_url() ?>/AdminLTE-3.2.0/index3.html" class="brand-link">
+                <img src="<?= base_url() ?>/AdminLTE-3.2.0/dist/img/AdminLTELogo.png" alt="AdminLTE Logo" class="brand-image img-circle elevation-3" style="opacity: .8">
                 <span class="brand-text font-weight-light">PengaduanMasyarakat</span>
             </a>
 
@@ -61,18 +60,18 @@
                 <!-- Sidebar user (optional) -->
                 <div class="user-panel mt-3 pb-3 mb-3 d-flex">
                     <div class="image">
-                        <img src="<?= base_url() ?>/AdminLTE-3.0.5/dist/img/user2-160x160.jpg"
-                            class="img-circle elevation-2" alt="User Image">
+                        <img src="<?= base_url() ?>/AdminLTE-3.2.0/dist/img/user2-160x160.jpg" class="img-circle elevation-2" alt="User Image">
                     </div>
                     <div class="info">
-                        <a href="#" class="d-block"><?php $session = session(); echo $session->get('nama_petugas');?> <br> Role: <?php $session = session(); echo $session->get('level');?></a>
+                        <a href="#" class="d-block"><?php $session = session();
+                                                    echo $session->get('nama_petugas'); ?> <br> Role: <?php $session = session();
+                                                                                                                                    echo $session->get('level'); ?></a>
                     </div>
                 </div>
 
                 <!-- Sidebar Menu -->
                 <nav class="mt-2">
-                    <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu"
-                        data-accordion="false">
+                    <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
                         <!-- Add icons to the links using the .nav-icon class
                with font-awesome or any other icon font library -->
 
@@ -201,13 +200,13 @@
     <!-- ./wrapper -->
 
     <!-- jQuery -->
-    <script src="<?= base_url() ?>/AdminLTE-3.0.5/plugins/jquery/jquery.min.js"></script>
+    <script src="<?= base_url() ?>/AdminLTE-3.2.0/plugins/jquery/jquery.min.js"></script>
     <!-- Bootstrap 4 -->
-    <script src="<?= base_url() ?>/AdminLTE-3.0.5/plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <script src="<?= base_url() ?>/AdminLTE-3.2.0/plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
     <!-- AdminLTE App -->
-    <script src="<?= base_url() ?>/AdminLTE-3.0.5/dist/js/adminlte.min.js"></script>
+    <script src="<?= base_url() ?>/AdminLTE-3.2.0/dist/js/adminlte.min.js"></script>
     <!-- AdminLTE for demo purposes -->
-    <script src="<?= base_url() ?>/AdminLTE-3.0.5/dist/js/demo.js"></script>
+    <script src="<?= base_url() ?>/AdminLTE-3.2.0/dist/js/demo.js"></script>
 </body>
 
 </html>
