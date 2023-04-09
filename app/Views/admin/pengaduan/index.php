@@ -162,6 +162,7 @@
                         <th>No</th>
                         <th>ID</th>
                         <th>Tanggal Pengaduan</th>
+                        <th>Nama Pengadu</th>
                         <th>NIK</th>
                         <th>Isi Laporan</th>
                         <th>Foto</th>
@@ -175,6 +176,7 @@
                           <td><?= $index + 1; ?></td>
                           <td><?= $pengaduan['id_pengaduan']; ?></td>
                           <td><?= $pengaduan['tanggal']; ?></td>
+                          <td><?= $pengaduan['nama']; ?></td>
                           <td><?= $pengaduan['nik']; ?></td>
                           <td><?= $pengaduan['laporan']; ?></td>
                           <td><img src="<?= base_url('/images/' . $pengaduan['foto']) ?>" alt="" width="100"></td>
@@ -292,15 +294,6 @@
         "autoWidth": false,
         "buttons": ["print"],
       }).buttons().container().appendTo('#example1_wrapper .col-md-6:eq(0)');
-      $('#example2').DataTable({
-        "paging": true,
-        "lengthChange": false,
-        "searching": false,
-        "ordering": true,
-        "info": true,
-        "autoWidth": false,
-        "responsive": true,
-      });
     });
   </script>
 </body>

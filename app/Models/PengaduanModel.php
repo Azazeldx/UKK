@@ -21,7 +21,6 @@ class PengaduanModel extends Model
 
 
         // =======================================================================================
-        $query = [];
         $db = \Config\Database::connect();
         $builder = $db->table($this->table);
         $builder->select('*');
@@ -40,5 +39,27 @@ class PengaduanModel extends Model
         } else {
             return $builder->where(['pengaduan.id_pengaduan' => $id_pengaduan])->get()->getRow();
         }
+    }
+
+    public function getPengaduanForCetak($tanggal_awal, $tanggal_akhir, $id_pengadu, $status)
+    {
+        $db = \Config\Database::connect();
+        $builder = $db->table($this->table);
+        $builder->select('*');
+        $builder->join('masyarakat', 'pengaduan.id_masyarakat = masyarakat.id_masyarakat');
+        if ($tanggal_awal) {
+            $builder->where('tanggal >=', $tanggal_awal);
+        }
+        if ($tanggal_akhir) {
+            $builder->where('tanggal <=', $tanggal_akhir);
+        }
+        if ($id_pengadu) {
+            $builder->where(['pengaduan.id_masyarakat' => $id_pengadu]);
+        }
+        if ($status) {
+            $builder->where(['status' => $status]);
+        }
+        $datas = $builder->get()->getResultArray();
+        return $datas;
     }
 }

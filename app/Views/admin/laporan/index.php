@@ -156,29 +156,31 @@
                 </div>
 
                 <div class="card-body">
-                  <form class="form-horizontal" action="<?= base_url('Jabatan/tambah'); ?>" method="POST">
+                  <form class="form-horizontal" action="<?= base_url('Admin/Laporan/index'); ?>" method="POST">
                     <div class="form-group row">
-                      <label for="nama_jabatan" class="col-4 col-form-label">Dari tanggal</label>
+                      <label for="tanggal_awal" class="col-4 col-form-label">Dari tanggal</label>
                       <div class="col-8">
-                        <input type="date" class="form-control" id="nama_jabatan" name="nama_jabatan" placeholder="Nama Jabatan">
+                        <input type="date" class="form-control" id="tanggal_awal" name="tanggal_awal" placeholder="Nama Jabatan">
                       </div>
                     </div>
                     <div class="form-group row">
-                      <label for="nama_jabatan" class="col-4 col-form-label">Sampai tanggal</label>
+                      <label for="tanggal_akhir" class="col-4 col-form-label">Sampai tanggal</label>
                       <div class="col-8">
-                        <input type="date" class="form-control" id="nama_jabatan" name="nama_jabatan" placeholder="Nama Jabatan">
+                        <input type="date" class="form-control" id="tanggal_akhir" name="tanggal_akhir" placeholder="Nama Jabatan">
                       </div>
                     </div>
                     <div class="form-group row">
                       <label for="keterangan" class="col-4 col-form-label">Nama Pengadu</label>
                       <div class="col-8">
-                        <select class="form-control" id="jenis_kelamin" name="jenis_kelamin">
-                          <option>Dimas</option>
-                          <option>Ayu</option>
+                        <select class="form-control" id="id_pengadu" name="id_pengadu">
+                          <option value="" selected>All</option>
+                          <?php foreach ($dataMasyarakat as $index => $masyarakat) : ?>
+                            <option value="<?= $masyarakat['id_masyarakat'] ?>"><?= $masyarakat['nama'] ?></option>
+                          <?php endforeach; ?>
                         </select>
                       </div>
                     </div>
-                    <div class="form-group row">
+                    <!-- <div class="form-group row">
                       <label for="keterangan" class="col-4 col-form-label">Nama Petugas</label>
                       <div class="col-8">
                         <select class="form-control" id="jenis_kelamin" name="jenis_kelamin">
@@ -186,20 +188,20 @@
                           <option>Pranata</option>
                         </select>
                       </div>
-                    </div>
+                    </div> -->
                     <div class="form-group row">
                       <label for="keterangan" class="col-4 col-form-label">Status</label>
                       <div class="col-8">
-                        <select class="form-control" id="jenis_kelamin" name="jenis_kelamin">
-                          <option>Pending</option>
-                          <option>Proses</option>
-                          <option>Selesai</option>
+                        <select class="form-control" id="status" name="status">
+                          <option value="" selected>All</option>
+                          <option value="antri">Antri</option>
+                          <option value="proses">Proses</option>
+                          <option value="selesai">Selesai</option>
                         </select>
                       </div>
                     </div>
                     <div class="modal-footer justify-content-between">
-                      <button type="button" class="btn btn-default" data-dismiss="modal">Batal</button>
-                      <button type="submit" class="btn btn-primary">Cetak Laporan</button>
+                      <button type="submit" class="btn btn-primary btn-generate-table">Generate Table</button>
                     </div>
 
                   </form>
@@ -212,6 +214,35 @@
           </div>
 
         </div>
+
+        <table id="example1" class="table table-bordered table-striped" style="display: none">
+          <thead>
+            <tr>
+              <th>No</th>
+              <th>ID</th>
+              <th>Tanggal Pengaduan</th>
+              <th>Nama Pengadu</th>
+              <th>NIK</th>
+              <th>Isi Laporan</th>
+              <th>Foto</th>
+              <th>Status</th>
+            </tr>
+          </thead>
+          <tbody>
+            <?php foreach ($dataPengaduan as $index => $pengaduan) : ?>
+              <tr>
+                <td><?= $index + 1; ?></td>
+                <td><?= $pengaduan['id_pengaduan']; ?></td>
+                <td><?= $pengaduan['tanggal']; ?></td>
+                <td><?= $pengaduan['nama']; ?></td>
+                <td><?= $pengaduan['nik']; ?></td>
+                <td><?= $pengaduan['laporan']; ?></td>
+                <td><img src="<?= base_url('/images/' . $pengaduan['foto']) ?>" alt="" width="100"></td>
+                <td><?= $pengaduan['status']; ?></td>
+              </tr>
+            <?php endforeach; ?>
+          </tbody>
+        </table>
 
       </section>
       <!-- /.content -->
@@ -235,13 +266,66 @@
   <!-- ./wrapper -->
 
   <!-- jQuery -->
-  <script src="<?= base_url() ?>/AdminLTE-3.2.0/plugins/jquery/jquery.min.js"></script>
-  <!-- Bootstrap 4 -->
-  <script src="<?= base_url() ?>/AdminLTE-3.2.0/plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
-  <!-- AdminLTE App -->
-  <script src="<?= base_url() ?>/AdminLTE-3.2.0/dist/js/adminlte.min.js"></script>
-  <!-- AdminLTE for demo purposes -->
-  <script src="<?= base_url() ?>/AdminLTE-3.2.0/dist/js/demo.js"></script>
+  <script src="<?= base_url(); ?>/AdminLTE-3.2.0/plugins/jquery/jquery.min.js"></script>
+
+  <script src="<?= base_url(); ?>/AdminLTE-3.2.0/plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
+
+  <script src="<?= base_url(); ?>/AdminLTE-3.2.0/plugins/datatables/jquery.dataTables.min.js"></script>
+  <script src="<?= base_url(); ?>/AdminLTE-3.2.0/plugins/datatables-bs4/js/dataTables.bootstrap4.min.js"></script>
+  <script src="<?= base_url(); ?>/AdminLTE-3.2.0/plugins/datatables-responsive/js/dataTables.responsive.min.js"></script>
+  <script src="<?= base_url(); ?>/AdminLTE-3.2.0/plugins/datatables-responsive/js/responsive.bootstrap4.min.js"></script>
+  <script src="<?= base_url(); ?>/AdminLTE-3.2.0/plugins/datatables-buttons/js/dataTables.buttons.min.js"></script>
+  <script src="<?= base_url(); ?>/AdminLTE-3.2.0/plugins/datatables-buttons/js/buttons.bootstrap4.min.js"></script>
+  <script src="<?= base_url(); ?>/AdminLTE-3.2.0/plugins/jszip/jszip.min.js"></script>
+  <script src="<?= base_url(); ?>/AdminLTE-3.2.0/plugins/pdfmake/pdfmake.min.js"></script>
+  <script src="<?= base_url(); ?>/AdminLTE-3.2.0/plugins/pdfmake/vfs_fonts.js"></script>
+  <script src="<?= base_url(); ?>/AdminLTE-3.2.0/plugins/datatables-buttons/js/buttons.html5.min.js"></script>
+  <script src="<?= base_url(); ?>/AdminLTE-3.2.0/plugins/datatables-buttons/js/buttons.print.min.js"></script>
+  <script src="<?= base_url(); ?>/AdminLTE-3.2.0/plugins/datatables-buttons/js/buttons.colVis.min.js"></script>
+
+  <script src="<?= base_url(); ?>/AdminLTE-3.2.0/dist/js/adminlte.min.js?v=3.2.0"></script>
+
+  <script>
+    setTimeout(() => {
+      if (!localStorage.getItem('isTableGenerated')) {
+        $('#example1').css({
+          'display': 'none'
+        });
+      } else {
+        $('#example1').css({
+          'display': 'table'
+        });
+        generateDataTable()
+      }
+      $('.btn-generate-table').on('click', function() {
+        localStorage.setItem('isTableGenerated', true);
+      })
+    }, 500);
+
+    function generateDataTable() {
+      $("#example1").DataTable({
+        "responsive": true,
+        "lengthChange": false,
+        "autoWidth": false,
+        "searching": false,
+        "paging": false,
+        "info": false,
+        "buttons": ["print"],
+      }).buttons().container().appendTo('.modal-footer');
+    };
+
+    $(function() {
+      if (performance.navigation.type == 1) {
+        localStorage.removeItem('isTableGenerated')
+      }
+    });
+
+    $('.nav-item').each(function() {
+      $(this).on('click', function() {
+        localStorage.removeItem('isTableGenerated')
+      })
+    })
+  </script>
 </body>
 
 </html>
