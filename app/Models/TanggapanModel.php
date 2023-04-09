@@ -18,4 +18,9 @@ class TanggapanModel extends Model
 
         return $this->where(['$id_tanggapan' => $id_tanggapan])->first();
     }
+
+    public function getTanggapanByPengaduanWithPetugas($id_pengaduan)
+    {
+        return $this->join('petugas', 'petugas.id_petugas = tanggapan.id_petugas')->where(['id_pengaduan' => $id_pengaduan])->findAll();
+    }
 }

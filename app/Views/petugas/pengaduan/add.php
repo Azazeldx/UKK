@@ -66,7 +66,7 @@
                     <div class="info">
                         <a href="#" class="d-block"><?php $session = session();
                                                     echo $session->get('nama_petugas'); ?> <br> Role: <?php $session = session();
-                                                                                                                                    echo $session->get('level'); ?></a>
+                                                                                                        echo $session->get('level'); ?></a>
                     </div>
                 </div>
 
@@ -183,8 +183,21 @@
                                             <label for="Status" class="col-4 col-form-label">Status</label>
                                             <div class="col-8">
                                                 <select name="status" id="status" class="form-control">
-                                                    <option value="Proses">Proses</option>
-                                                    <option value="Selesai">Selesai</option>
+                                                    <?php if ($dataPengaduan->status === 'antri') : ?>
+                                                        <option value="antri" selected>antri</option>
+                                                    <?php else : ?>
+                                                        <option value="antri">antri</option>
+                                                    <?php endif; ?>
+                                                    <?php if ($dataPengaduan->status === 'proses') : ?>
+                                                        <option value="proses" selected>proses</option>
+                                                    <?php else : ?>
+                                                        <option value="proses">proses</option>
+                                                    <?php endif; ?>
+                                                    <?php if ($dataPengaduan->status === 'selesai') : ?>
+                                                        <option value="selesai" selected>selesai</option>
+                                                    <?php else : ?>
+                                                        <option value="selesai">selesai</option>
+                                                    <?php endif; ?>
                                                 </select>
                                             </div>
                                         </div>
@@ -195,35 +208,39 @@
 
                                     </form>
 
-                                    <hr>
-                                    <table class="table">
-                                        <thead>
-                                            <tr>
-                                                <th scope="col">No</th>
-                                                <th scope="col">Tanggapan</th>
-                                                <th scope="col">Status</th>
-                                                <th scope="col">Aksi</th>
-                                            </tr>
-                                        </thead>
-                                        <tbody>
-                                            <tr>
-                                                <th scope="row">1</th>
-                                                <td>Mark</td>
-                                                <td>Otto</td>
-                                                <td>
-                                                    <button class="btn btn-success"><i class="fa-solid fa-pencil"></i> Edit</button>
-                                                </td>
-                                            </tr>
-                                            <tr>
-                                                <th scope="row">2</th>
-                                                <td>Jacob</td>
-                                                <td>Thornton</td>
-                                                <td>
-                                                    <button class="btn btn-success"><i class="fa-solid fa-pencil"></i> Edit</button>
-                                                </td>
-                                            </tr>
-                                        </tbody>
-                                    </table>
+                                    <?php if ($dataTanggapan) : ?>
+                                        <hr>
+                                        <table class="table">
+                                            <thead>
+                                                <tr>
+                                                    <th scope="col">No</th>
+                                                    <th scope="col">Nama</th>
+                                                    <th scope="col">Tanggapan</th>
+                                                    <th scope="col">Tanggal</th>
+                                                    <th scope="col">Aksi</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                <?php foreach ($dataTanggapan as $index => $tanggapan) : ?>
+                                                    <tr>
+                                                        <th scope="row"><?= $index + 1 ?></th>
+                                                        <td><?= $tanggapan['nama_petugas'] ?></td>
+                                                        <td><?= $tanggapan['tanggapan'] ?></td>
+                                                        <td><?= $tanggapan['tanggal'] ?></td>
+                                                        <td>
+                                                            <?php if ($tanggapan['id_petugas'] === session()->get('id_petugas') || session()->get('level') === 'admin') : ?>
+                                                                <button class="btn btn-success btn-edit" data-id_tanggapan="<?= $tanggapan['id_tanggapan'] ?>" data-tanggapan="<?= $tanggapan['tanggapan']; ?>"><i class="fa-solid fa-pencil"></i> Edit</button>
+                                                                <button type="button" class="btn btn-danger m-1 btn-delete" data-id_tanggapan="<?= $tanggapan['id_tanggapan']; ?>">
+                                                                    <i class="fas fa-trash"></i>
+                                                                    Hapus
+                                                                </button>
+                                                            <?php endif; ?>
+                                                        </td>
+                                                    </tr>
+                                                <?php endforeach; ?>
+                                            </tbody>
+                                        </table>
+                                    <?php endif; ?>
                                 </div>
 
                             </div>
@@ -238,6 +255,58 @@
             <!-- /.content -->
         </div>
         <!-- /.content-wrapper -->
+
+        <div class="modal fade" id="modal-ubah" style="display: none;" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header bg-success">
+                        <h4 class="modal-title">Ubah Tanggapan</h4>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">×</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        <form action="<?= base_url('Petugas/Pengaduan/proses_edit_tanggapan'); ?>" method="POST">
+                            <input type="hidden" name="id_tanggapan" class="id_tanggapan">
+                            <div class="form-group">
+                                <textarea name="tanggapan" id="tanggapan" cols="30" rows="10" class="form-control tanggapan" placeholder="Ubah tanggapan"></textarea>
+                            </div>
+                            <div class="modal-footer justify-content-between">
+                                <button type="button" class="btn btn-default" data-dismiss="modal">Batal</button>
+                                <button type="submit" class="btn btn-success btn-submit-ubah">Ubah</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+
+        <div class="modal fade" style="display: none;" id="modal-hapus">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <form action="<?= base_url('Petugas/Pengaduan/proses_hapus_tanggapan'); ?>" method="post">
+                        <div class="modal-header bg-danger">
+                            <h4 class="modal-title">Hapus Tanggapan</h4>
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                        </div>
+                        <div class="modal-body">
+                            <p>Yakin Tanggapan Ini Akan Dihapus ?</p>
+                            <input type="hidden" name="id_tanggapan" class="id_tanggapan" id="id_tanggapan">
+                        </div>
+                        <div class="modal-footer justify-content-between">
+                            <button type="button" class="btn btn-outline-light" data-dismiss="modal">Tidak</button>
+                            <button type="submit" class="btn btn-outline-light bg-danger">Iya</button>
+                        </div>
+                    </form>
+                </div>
+
+            </div>
+
+        </div>
 
         <footer class="main-footer">
             <div class="float-right d-none d-sm-block">
@@ -263,6 +332,32 @@
     <script src="<?= base_url() ?>/AdminLTE-3.0.5/dist/js/adminlte.min.js"></script>
     <!-- AdminLTE for demo purposes -->
     <script src="<?= base_url() ?>/AdminLTE-3.0.5/dist/js/demo.js"></script>
+
+    <script>
+        $(document).ready(function() {
+            $('.btn-edit').on('click', function() {
+                const id_tanggapan = $(this).data('id_tanggapan');
+                const tanggapan = $(this).data('tanggapan');
+                $('.id_tanggapan').val(id_tanggapan);
+                $('.tanggapan').val(tanggapan);
+                $('#modal-ubah').modal('show');
+
+                $('.tanggapan').keyup(function(event) {
+                    if (!event.target.value.length) {
+                        $('.btn-submit-ubah').prop('disabled', true)
+                    } else {
+                        $('.btn-submit-ubah').prop('disabled', false)
+                    }
+                })
+            });
+
+            $('.btn-delete').on('click', function() {
+                const id_tanggapan = $(this).data('id_tanggapan')
+                $('.id_tanggapan').val(id_tanggapan);
+                $('#modal-hapus').modal('show');
+            })
+        });
+    </script>
 </body>
 
 </html>

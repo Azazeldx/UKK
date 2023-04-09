@@ -31,10 +31,10 @@ class Pengaduan extends BaseController
 
         $data = [
             'judul' => 'Tanggapi Pengaduan',
-            'dataPengaduan' => $this->PengaduanModel->getPengaduan('petugas', $id)
-
+            'dataPengaduan' => $this->PengaduanModel->getPengaduan('petugas', $id),
+            'dataTanggapan' => $this->TanggapanModel->getTanggapanByPengaduanWithPetugas($id)
         ];
-        // var_dump($data);
+        // var_dump($data['dataPengaduan']->status);
 
         return view('/petugas/pengaduan/add', $data);
     }
@@ -51,7 +51,10 @@ class Pengaduan extends BaseController
             'tanggal' => date("Y-m-d"),
         ];
 
-        $this->TanggapanModel->insert($addedTanggapanData);
+        if ($data['tanggapan']) {
+            $this->TanggapanModel->insert($addedTanggapanData);
+        }
+
         $this->PengaduanModel->update(
             ['id_pengaduan' => $data['id_pengaduan']],
             [
@@ -59,6 +62,22 @@ class Pengaduan extends BaseController
             ]
         );
 
+        return redirect()->to(base_url('/petugas/pengaduan'));
+    }
+
+    public function proses_edit_tanggapan()
+    {
+        $data = $this->request->getVar();
+
+        $this->TanggapanModel->update(['id_tanggapan' => $data['id_tanggapan']], ['tanggapan' => $data['tanggapan']]);
+
+        return redirect()->to(base_url('/petugas/pengaduan'));
+    }
+
+    public function proses_hapus_tanggapan()
+    {
+        $data = $this->request->getVar();
+        $this->TanggapanModel->delete($data['id_tanggapan']);
         return redirect()->to(base_url('/petugas/pengaduan'));
     }
 }
