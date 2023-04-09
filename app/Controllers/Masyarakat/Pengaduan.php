@@ -47,14 +47,13 @@ class Pengaduan extends BaseController
             'status' => "antri",
         ];
 
-        // var_dump($data);
-
-        $this->PengaduanModel->insert($data);
-
-        $image->move('images');
-
-
-        return redirect()->to(base_url('Masyarakat/Pengaduan'));
+        if ($addedData['isi_laporan'] && strlen($image)) {
+            $this->PengaduanModel->insert($data);
+            $image->move('images');
+            return redirect()->to(base_url('Masyarakat/Pengaduan'));
+        } else {
+            return redirect()->to(base_url('Masyarakat/Pengaduan/form_add'));
+        }
     }
     public function hapus()
     {

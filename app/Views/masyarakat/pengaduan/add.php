@@ -140,19 +140,19 @@
                                                     <label for="nama_jabatan" class="col-4 col-form-label">Isi Laporan
                                                     </label>
                                                     <div class="col-8">
-                                                        <textarea class="form-control" id="isi_laporan" name="isi_laporan" cols="30" rows="10"></textarea>
+                                                        <textarea class="form-control" id="isi_laporan" name="isi_laporan" cols="30" rows="10" required></textarea>
                                                     </div>
                                                 </div>
                                                 <div class="form-group row">
                                                     <label for="nama_jabatan" class="col-4 col-form-label">Foto
                                                     </label>
                                                     <div class="col-8">
-                                                        <input type="File" class="form-control" id="foto" name="foto" placeholder="Nama Jabatan">
+                                                        <input type="File" class="form-control" id="foto" name="foto" placeholder="Nama Jabatan" required>
                                                     </div>
                                                 </div>
                                                 <div class="modal-footer justify-content-between">
                                                     <button type="button" class="btn btn-default" data-dismiss="modal">Batal</button>
-                                                    <button type="submit" class="btn btn-primary">Simpan</button>
+                                                    <button type="submit" class="btn btn-primary btn-submit-pengaduan">Simpan</button>
                                                 </div>
 
                                             </form>
@@ -198,6 +198,7 @@
     <script src="<?= base_url() ?>/AdminLTE-3.2.0/dist/js/adminlte.min.js"></script>
     <!-- AdminLTE for demo purposes -->
     <script src="<?= base_url() ?>/AdminLTE-3.2.0/dist/js/demo.js"></script>
+
 </body>
 
 </html>
