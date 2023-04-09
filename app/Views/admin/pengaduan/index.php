@@ -152,46 +152,10 @@
             <div class="col-12">
               <div class="card">
                 <div class="card-header">
-                  <!-- <button type="button" class="btn btn-outline-primary" data-toggle="modal" data-target="#modal-tambah">
-                                        <i class="fas fa-plus"></i>
-                                        Tambah
-                                    </button> -->
                   List Data Pengaduan Masyarakat
                 </div>
 
                 <div class="card-body">
-                  <!-- <table id="example1" class="table table-bordered table-striped">
-                                        <thead>
-                                            <tr>
-                                                <th>No</th>
-                                                <th>NIK</th>
-                                                <th>Nama</th>
-                                                <th>Tanggal Pengaduan</th>
-                                                <th>Isi Pengaduan</th>
-                                                <th>Foto</th>
-                                                <th>Status</th>
-                                                <th>Aksi</th>
-                                            </tr>
-                                        </thead>
-                                        <tbody>
-                                            <tr>
-                                                <td>1</td>
-                                                <td>5235434534</td>
-                                                <td>Dimas Gracio</td>
-                                                <td>11 Februari 2023</td>
-                                                <td>Hotel</td>
-                                                <td>gambar.jpg</td>
-                                                <td>Pending</td>
-                                                <td class="d-flex justify-content-center">
-                                                    <button type="button" class="btn btn-success m-1 btn-edit">
-                                                        <i class="fas fa-edit"></i>
-                                                        Tanggapan
-                                                    </button>
-                                        
-                                                </td>
-                                            </tr>
-                                        </tbody>
-                                    </table> -->
                   <table id="example1" class="table table-bordered table-striped">
                     <thead>
                       <tr>
@@ -215,11 +179,11 @@
                           <td><?= $pengaduan['laporan']; ?></td>
                           <td><img src="<?= base_url('/images/' . $pengaduan['foto']) ?>" alt="" width="100"></td>
                           <td><?= $pengaduan['status']; ?></td>
-                          <td class="d-flex justify-content-center">
-                            <button type="button" class="btn btn-success m-1 btn-edit" data-toggle="modal" data-target="#modal-ubah" data-whatever="@getbootstrap" data-id_pengaduan="<?= $pengaduan['id_pengaduan']; ?>" data-tgl_pengaduan="<?= $pengaduan['tanggal']; ?>" data-nik="<?= $pengaduan['nik']; ?>" data-isi_laporan="<?= $pengaduan['laporan']; ?>" data-foto="<?= $pengaduan['foto']; ?>" data-status="<?= $pengaduan['status']; ?>">
-                              <i class="fas fa-edit"></i>
-                              Ubah
-                            </button>
+                          <td class="mx-auto">
+                            <a class="btn btn-primary m-1 btn-delete" href="<?= base_url('/admin/pengaduan/form_add/' . $pengaduan['id_pengaduan']) ?>">
+                              <i class="fa fa-eye"></i>
+                              Detail
+                            </a>
                             <button type="button" class="btn btn-danger m-1 btn-delete" data-id="<?= $pengaduan['id_pengaduan']; ?>">
                               <i class="fas fa-trash"></i>
                               Hapus
@@ -260,6 +224,33 @@
   </div>
   <!-- ./wrapper -->
 
+  <div class="modal fade" style="display: none;" id="modal-hapus">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <form action="<?= base_url('admin/Pengaduan/hapus/'); ?>" method="post">
+          <div class="modal-header bg-danger">
+            <h4 class="modal-title">Hapus Data</h4>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body">
+            <p>Yakin Data Dengan ID Pengaduan <span class="id_pengaduan-confirm"></span> Ini Akan Dihapus ?</p>
+            <input type="hidden" name="id_pengaduan" class="id_pengaduan" id="id_pengaduan">
+          </div>
+          <div class="modal-footer justify-content-between">
+            <button type="button" class="btn btn-outline-light" data-dismiss="modal">Tidak</button>
+            <button type="submit" class="btn btn-outline-light bg-danger">Iya</button>
+          </div>
+        </form>
+      </div>
+
+    </div>
+
+  </div>
+
+
+
   <!-- jQuery -->
   <script src="<?= base_url() ?>/AdminLTE-3.0.5/plugins/jquery/jquery.min.js"></script>
   <!-- Bootstrap 4 -->
@@ -268,6 +259,39 @@
   <script src="<?= base_url() ?>/AdminLTE-3.0.5/dist/js/adminlte.min.js"></script>
   <!-- AdminLTE for demo purposes -->
   <script src="<?= base_url() ?>/AdminLTE-3.0.5/dist/js/demo.js"></script>
+
+
+  <script>
+    $(document).ready(function() {
+      $('.btn-delete').on('click', function() {
+        const id = $(this).data('id');
+
+        $('.id_pengaduan-confirm').text(id);
+        $('.id_pengaduan').val(id);
+        $('#modal-hapus').modal('show');
+      });
+    });
+  </script>
+
+  <script>
+    $(function() {
+      $("#example1").DataTable({
+        "responsive": true,
+        "lengthChange": false,
+        "autoWidth": false,
+        "buttons": ["copy", "csv", "excel", "pdf", "print", "colvis"],
+      }).buttons().container().appendTo('#example1_wrapper .col-md-6:eq(0)');
+      $('#example2').DataTable({
+        "paging": true,
+        "lengthChange": false,
+        "searching": false,
+        "ordering": true,
+        "info": true,
+        "autoWidth": false,
+        "responsive": true,
+      });
+    });
+  </script>
 </body>
 
 </html>
