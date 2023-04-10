@@ -10,6 +10,9 @@ use App\Models\PengaduanModel;
 
 class Beranda extends BaseController
 {
+    protected $MasyarakatModel;
+    protected $PetugasModel;
+    protected $PengaduanModel;
     public function __construct()
     {
         // $this->jabatanModel = new JabatanModel();
@@ -26,6 +29,13 @@ class Beranda extends BaseController
             'Petugas' => $this->PetugasModel->getPetugas(),
             'Pengaduan' => $this->PengaduanModel->getPengaduan('masyarakat'),
         ];
+
+        // var_dump(session());
+
+        if(!session()->get('logged_in')) {
+            return redirect()->to(base_url('/'));
+        }
+
         return view('masyarakat\beranda\index', $data);
     }
 }

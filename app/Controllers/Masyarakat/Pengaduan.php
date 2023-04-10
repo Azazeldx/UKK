@@ -23,6 +23,11 @@ class Pengaduan extends BaseController
             'judul' => 'Pengaduan',
             'dataPengaduan' => $this->PengaduanModel->getPengaduan('masyarakat')
         ];
+
+        if(!session()->get('logged_in')) {
+            return redirect()->to(base_url('/'));
+        }
+        
         return view('masyarakat\pengaduan\index', $data);
     }
 

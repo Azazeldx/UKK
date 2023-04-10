@@ -23,6 +23,11 @@ class Masyarakat extends BaseController
             'judul' => 'Masyarakat',
             'dataMasyarakat' => $this->MasyarakatModel->getMasyarakat()
         ];
+
+        if(!session()->get('logged_in')) {
+            return redirect()->to(base_url('/'));
+        }
+
         return view('admin\masyarakat\index', $data);
     }
 

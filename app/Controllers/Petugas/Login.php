@@ -18,6 +18,9 @@ class Login extends BaseController
 
     public function index()
     {
+        if(!session()->get('logged_in')) {
+            return redirect()->to(base_url('/'));
+        }
         return view('petugas\login\index');
     }
 
@@ -61,7 +64,7 @@ class Login extends BaseController
             // // $this->session->set_flashdata('error', 'Username atau password salah');
 
             // $this->session->set_flashdata('error', 'Username atau Password salah');
-            return $this->load->view('home');
+            return view('home');
             //  session()->setFlashdata("error", "Username atau password salah");
             //  return redirect()->to(base_url('/home'));
 

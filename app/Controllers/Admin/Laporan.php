@@ -37,6 +37,11 @@ class Laporan extends BaseController
             'dataMasyarakat' => $this->MasyarakatModel->getMasyarakat(),
             'dataPengaduan' => $this->PengaduanModel->getPengaduanForCetak($data['tanggal_awal'], $data['tanggal_akhir'], $data['id_pengadu'], $data['status'])
         ];
+
+        if(!session()->get('logged_in')) {
+            return redirect()->to(base_url('/'));
+        }
+        
         return view('admin\laporan\index', $data);
     }
 

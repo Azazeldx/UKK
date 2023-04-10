@@ -24,6 +24,11 @@ class Petugas extends BaseController
             'judul' => 'Petugas',
             'dataPetugas' => $this->PetugasModel->getPetugas()
         ];
+
+        if(!session()->get('logged_in')) {
+            return redirect()->to(base_url('/'));
+        }
+        
         return view('admin\petugas\index', $data);
     }
 
