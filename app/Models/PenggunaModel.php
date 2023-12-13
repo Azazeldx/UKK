@@ -24,9 +24,9 @@ class PenggunaModel extends Model
         $db = \Config\Database::connect();
         $builder = $db->table($this->table);
         $builder->select('*');
-        if ($from === 'masyarakat') {
+        if ($from === 'kasta_renda') {
             $builder->join('masyarakat', 'pengguna.id_pengguna = masyarakat.id_pengguna');
-        } else if ($from === 'petugas') {
+        } else if ($from === 'kasta_tinggi') {
             $builder->join('petugas', 'pengguna.id_pengguna = petugas.id_pengguna');
         }
         $builder->where(['username' => $username, 'password' => $password]);

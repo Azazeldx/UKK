@@ -16,6 +16,7 @@
     <link rel="stylesheet" href="<?= base_url() ?>/AdminLTE-3.2.0/dist/css/adminlte.min.css">
     <!-- Google Font: Source Sans Pro -->
     <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700" rel="stylesheet">
+
     <style>
     .sidebar a {
         color: white;
@@ -95,7 +96,6 @@
                         </li>
 
 
-
                     </ul>
                 </nav>
                 <!-- /.sidebar-menu -->
@@ -110,7 +110,7 @@
                 <div class="container-fluid">
                     <div class="row mb-2">
                         <div class="col-sm-6">
-                            <h1><?= $judul; ?></h1>
+                            <h1>Beranda</h1>
                         </div>
                         <div class="col-sm-6">
                             <ol class="breadcrumb float-sm-right">
@@ -122,93 +122,25 @@
                 </div><!-- /.container-fluid -->
             </section>
 
-            <!-- Main content -->
-            <section class="content">
+            <?=$this->renderSection('content')?>
 
-                <div class="container-fluid">
-
-                    <section class="content">
-
-                        <div class="container-fluid">
-                            <div class="row">
-                                <div class="col-12">
-                                    <div class="card">
-                                        <div class="card-header">
-                                            Silahkan isi laporan pengaduan.
-                                        </div>
-
-                                        <div class="card-body">
-                                            <form class="form-horizontal"
-                                                action="<?= base_url('Masyarakat/pengaduan/proses_tambah'); ?>"
-                                                method="POST" enctype="multipart/form-data">
-                                                <div class="form-group row">
-                                                    <label for="nama_jabatan" class="col-4 col-form-label">Isi Laporan
-                                                    </label>
-                                                    <div class="col-8">
-                                                        <textarea class="form-control" id="isi_laporan"
-                                                            name="isi_laporan" cols="30" rows="10" required></textarea>
-                                                    </div>
-                                                </div>
-                                                <div class="form-group row">
-                                                    <label for="nama_jabatan" class="col-4 col-form-label">Foto
-                                                    </label>
-                                                    <div class="col-8">
-                                                        <input type="File" class="form-control" id="foto" name="foto"
-                                                            placeholder="Nama Jabatan" required>
-                                                    </div>
-                                                </div>
-                                                <div class="modal-footer justify-content-between">
-                                                    <a href=<?= base_url('Masyarakat/Pengaduan'); ?>><button
-                                                            type="button" class="btn btn-default"
-                                                            data-dismiss="modal">Batal</button></a>
-                                                    <button type="submit"
-                                                        class="btn btn-primary btn-submit-pengaduan">Simpan</button>
-                                                </div>
-
-                                            </form>
-                                        </div>
-
-                                    </div>
-
-                                </div>
-
-                            </div>
-
-                        </div>
-
-                    </section>
+            <footer class="main-footer">
+                <div class="float-right d-none d-sm-block">
+                    <b>Version</b> 3.0.5
                 </div>
+                <strong>Copyright &copy; 2023 bikincoding.com</strong> All rights
+                reserved.
+            </footer>
 
-            </section>
-            <!-- /.content -->
+            <!-- Control Sidebar -->
+            <aside class="control-sidebar control-sidebar-dark">
+                <!-- Control sidebar content goes here -->
+            </aside>
+            <!-- /.control-sidebar -->
         </div>
-        <!-- /.content-wrapper -->
+        <!-- ./wrapper -->
 
-        <footer class="main-footer">
-            <div class="float-right d-none d-sm-block">
-                <b>Version</b> 3.0.5
-            </div>
-            <strong>Copyright &copy; 2023 bikincoding.com</strong> All rights
-            reserved.
-        </footer>
-
-        <!-- Control Sidebar -->
-        <aside class="control-sidebar control-sidebar-dark">
-            <!-- Control sidebar content goes here -->
-        </aside>
-        <!-- /.control-sidebar -->
-    </div>
-    <!-- ./wrapper -->
-
-    <!-- jQuery -->
-    <script src="<?= base_url() ?>/AdminLTE-3.2.0/plugins/jquery/jquery.min.js"></script>
-    <!-- Bootstrap 4 -->
-    <script src="<?= base_url() ?>/AdminLTE-3.2.0/plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
-    <!-- AdminLTE App -->
-    <script src="<?= base_url() ?>/AdminLTE-3.2.0/dist/js/adminlte.min.js"></script>
-    <!-- AdminLTE for demo purposes -->
-    <script src="<?= base_url() ?>/AdminLTE-3.2.0/dist/js/demo.js"></script>
-
+        <?=$this->renderSection('footer')?>
 </body>
 
 </html>

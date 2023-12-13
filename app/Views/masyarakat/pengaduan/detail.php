@@ -19,9 +19,9 @@
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css" rel="stylesheet">
 
     <style>
-        .sidebar a {
-            color: white;
-        }
+    .sidebar a {
+        color: white;
+    }
     </style>
 </head>
 
@@ -52,7 +52,8 @@
         <aside class="main-sidebar sidebar-dark text-white bg-danger elevation-4">
             <!-- Brand Logo -->
             <a href="<?= base_url() ?>/AdminLTE-3.2.0/index3.html" class="brand-link">
-                <img src="<?= base_url() ?>/AdminLTE-3.2.0/dist/img/AdminLTELogo.png" alt="AdminLTE Logo" class="brand-image img-circle elevation-3" style="opacity: .8">
+                <img src="<?= base_url() ?>/AdminLTE-3.2.0/dist/img/AdminLTELogo.png" alt="AdminLTE Logo"
+                    class="brand-image img-circle elevation-3" style="opacity: .8">
                 <span class="brand-text font-weight-light">PengaduanMasyarakat</span>
             </a>
 
@@ -61,7 +62,8 @@
                 <!-- Sidebar user (optional) -->
                 <div class="user-panel mt-3 pb-3 mb-3 d-flex">
                     <div class="image">
-                        <img src="<?= base_url() ?>/AdminLTE-3.2.0/dist/img/user2-160x160.jpg" class="img-circle elevation-2" alt="User Image">
+                        <img src="<?= base_url() ?>/AdminLTE-3.2.0/dist/img/user2-160x160.jpg"
+                            class="img-circle elevation-2" alt="User Image">
                     </div>
                     <div class="info">
                         <a href="#" class="d-block"><?php $session = session();
@@ -71,7 +73,8 @@
 
                 <!-- Sidebar Menu -->
                 <nav class="mt-2">
-                    <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
+                    <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu"
+                        data-accordion="false">
                         <!-- Add icons to the links using the .nav-icon class
                with font-awesome or any other icon font library -->
 
@@ -132,10 +135,13 @@
                                 </div>
 
                                 <div class="card-body">
-                                    <form class="form-horizontal" action="<?= base_url('petugas/pengaduan/proses_tambah_tanggapan'); ?>" method="POST">
+                                    <form class="form-horizontal"
+                                        action="<?= base_url('petugas/pengaduan/proses_tambah_tanggapan'); ?>"
+                                        method="POST">
                                         <div class="form-group row">
                                             <div class="col-8">
-                                                <input type="hidden" name="id_pengaduan" id="id_pengaduan" value="<?= $dataPengaduan->id_pengaduan ?>">
+                                                <input type="hidden" name="id_pengaduan" id="id_pengaduan"
+                                                    value="<?= $dataPengaduan->id_pengaduan ?>">
                                                 <!-- <?= $dataPengaduan->id_pengaduan ?> -->
                                             </div>
                                         </div>
@@ -169,7 +175,8 @@
                                         <div class="form-group row">
                                             <label for="keterangan" class="col-4 col-form-label">Foto</label>
                                             <div class="col-8">
-                                                <img src="<?php echo base_url('images/' . $dataPengaduan->foto) ?>" alt="" style="width:500px;">
+                                                <img src="<?php echo base_url('images/' . $dataPengaduan->foto) ?>"
+                                                    alt="" style="width:500px;">
                                             </div>
                                         </div>
 
@@ -184,27 +191,27 @@
                                     </form>
 
                                     <?php if ($dataTanggapan) : ?>
-                                        <hr>
-                                        <table class="table">
-                                            <thead>
-                                                <tr>
-                                                    <th scope="col">No</th>
-                                                    <th scope="col">Nama</th>
-                                                    <th scope="col">Tanggapan</th>
-                                                    <th scope="col">Tanggal</th>
-                                                </tr>
-                                            </thead>
-                                            <tbody>
-                                                <?php foreach ($dataTanggapan as $index => $tanggapan) : ?>
-                                                    <tr>
-                                                        <th scope="row"><?= $index + 1 ?></th>
-                                                        <td><?= $tanggapan['nama_petugas'] ?></td>
-                                                        <td><?= $tanggapan['tanggapan'] ?></td>
-                                                        <td><?= $tanggapan['tanggal'] ?></td>
-                                                    </tr>
-                                                <?php endforeach; ?>
-                                            </tbody>
-                                        </table>
+                                    <hr>
+                                    <table class="table">
+                                        <thead>
+                                            <tr>
+                                                <th scope="col">No</th>
+                                                <th scope="col">Nama</th>
+                                                <th scope="col">Tanggapan</th>
+                                                <th scope="col">Tanggal</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <?php foreach ($dataTanggapan as $index => $tanggapan) : ?>
+                                            <tr>
+                                                <th scope="row"><?= $index + 1 ?></th>
+                                                <td><?= $tanggapan['nama_petugas'] ?></td>
+                                                <td><?= $tanggapan['tanggapan'] ?></td>
+                                                <td><?= $tanggapan['tanggal'] ?></td>
+                                            </tr>
+                                            <?php endforeach; ?>
+                                        </tbody>
+                                    </table>
                                     <?php endif; ?>
                                 </div>
 
@@ -234,7 +241,8 @@
                         <form action="<?= base_url('Petugas/Pengaduan/proses_edit_tanggapan'); ?>" method="POST">
                             <input type="hidden" name="id_tanggapan" class="id_tanggapan">
                             <div class="form-group">
-                                <textarea name="tanggapan" id="tanggapan" cols="30" rows="10" class="form-control tanggapan" placeholder="Ubah tanggapan"></textarea>
+                                <textarea name="tanggapan" id="tanggapan" cols="30" rows="10"
+                                    class="form-control tanggapan" placeholder="Ubah tanggapan"></textarea>
                             </div>
                             <div class="modal-footer justify-content-between">
                                 <button type="button" class="btn btn-default" data-dismiss="modal">Batal</button>
@@ -299,29 +307,29 @@
     <script src="<?= base_url() ?>/AdminLTE-3.2.0/dist/js/demo.js"></script>
 
     <script>
-        $(document).ready(function() {
-            $('.btn-edit').on('click', function() {
-                const id_tanggapan = $(this).data('id_tanggapan');
-                const tanggapan = $(this).data('tanggapan');
-                $('.id_tanggapan').val(id_tanggapan);
-                $('.tanggapan').val(tanggapan);
-                $('#modal-ubah').modal('show');
+    $(document).ready(function() {
+        $('.btn-edit').on('click', function() {
+            const id_tanggapan = $(this).data('id_tanggapan');
+            const tanggapan = $(this).data('tanggapan');
+            $('.id_tanggapan').val(id_tanggapan);
+            $('.tanggapan').val(tanggapan);
+            $('#modal-ubah').modal('show');
 
-                $('.tanggapan').keyup(function(event) {
-                    if (!event.target.value.length) {
-                        $('.btn-submit-ubah').prop('disabled', true)
-                    } else {
-                        $('.btn-submit-ubah').prop('disabled', false)
-                    }
-                })
-            });
-
-            $('.btn-delete').on('click', function() {
-                const id_tanggapan = $(this).data('id_tanggapan')
-                $('.id_tanggapan').val(id_tanggapan);
-                $('#modal-hapus').modal('show');
+            $('.tanggapan').keyup(function(event) {
+                if (!event.target.value.length) {
+                    $('.btn-submit-ubah').prop('disabled', true)
+                } else {
+                    $('.btn-submit-ubah').prop('disabled', false)
+                }
             })
         });
+
+        $('.btn-delete').on('click', function() {
+            const id_tanggapan = $(this).data('id_tanggapan')
+            $('.id_tanggapan').val(id_tanggapan);
+            $('#modal-hapus').modal('show');
+        })
+    });
     </script>
 </body>
 

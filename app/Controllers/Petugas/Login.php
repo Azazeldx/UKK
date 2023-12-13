@@ -18,9 +18,6 @@ class Login extends BaseController
 
     public function index()
     {
-        if(!session()->get('logged_in')) {
-            return redirect()->to(base_url('/'));
-        }
         return view('petugas\login\index');
     }
 
@@ -29,7 +26,7 @@ class Login extends BaseController
         $session = session();
         $username = $this->request->getVar('username');
         $password = md5($this->request->getVar('password'));
-        $validUser = $this->PenggunaModel->login($username, $password, 'petugas');
+        $validUser = $this->PenggunaModel->login2($username, $password, 'admin');
 
         if ($validUser) {
             $level = $validUser->role;
@@ -76,6 +73,6 @@ class Login extends BaseController
     {
         $session = session();
         $session->destroy();
-        return redirect()->to(base_url('/petugas/login'));
+        return redirect()->to(base_url('/'));
     }
 }

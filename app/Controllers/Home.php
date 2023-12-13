@@ -4,16 +4,19 @@ namespace App\Controllers;
 
 use App\Models\MasyarakatModel;
 use App\Models\PenggunaModel;
+use App\Models\PetugasModel;
 
 class Home extends BaseController
 {
     protected $MasyarakatModel;
     protected $PenggunaModel;
+    protected $PetugasModel;
 
     public function __construct()
     {
         $this->MasyarakatModel = new MasyarakatModel();
         $this->PenggunaModel = new PenggunaModel();
+        $this->PetugasModel = new PetugasModel();
     }
 
     public function index()
@@ -26,39 +29,54 @@ class Home extends BaseController
         $session = session();
         $username = $this->request->getVar('username');
         $password = md5($this->request->getVar('password'));
-        $validUser = $this->PenggunaModel->login($username, $password, 'masyarakat');
+        $validUserMasyarakat = $this->PenggunaModel->login($username, $password, 'kasta_renda');
+        $validUserPetugas = $this->PenggunaModel->login($username, $password, 'kasta_tinggi');
 
-        if ($validUser) {
+        if ($validUserMasyarakat) {
             $ses_masyarakat = [
-                'id_masyarakat' => $validUser->id_masyarakat,
-                'nama' => $validUser->nama,
-                'username' => $validUser->username,
-                'telp' => $validUser->telp,
+                'id_masyarakat' => $validUserMasyarakat->id_masyarakat,
+                'nama' => $validUserMasyarakat->nama,
+                'username' => $validUserMasyarakat->username,
+                'telp' => $validUserMasyarakat->telp,
                 'logged_in' => TRUE,
-                'role' => $validUser->role
+                'role' => $validUserMasyarakat->role
             ];
 
             $session->set($ses_masyarakat);
 
             return redirect()->to(base_url('/masyarakat/beranda'));
+        } else if($validUserPetugas) {
+            $level = $validUserPetugas->role;
+            if ($level === 'admin') {
+                $ses_admin = [
+                    'username' => $validUserPetugas->username,
+                    'nama_petugas' => $validUserPetugas->nama_petugas,
+                    'level' => $validUserPetugas->role,
+                    'logged_in' => TRUE,
+                    'id_petugas' => $validUserPetugas->id_petugas
+                ];
+                $session->set($ses_admin);
+                return redirect()->to(base_url('/admin/beranda'));
+            } else {
+                $ses_petugas = [
+                    'username' => $validUserPetugas->username,
+                    'nama_petugas' => $validUserPetugas->nama_petugas,
+                    'level' => $validUserPetugas->role,
+                    'logged_in' => TRUE,
+                    'id_petugas' => $validUserPetugas->id_petugas
+                ];
+                $session->set($ses_petugas);
+                return redirect()->to(base_url('/petugas/beranda'));
+            }
         } else {
-
             echo '<script>
             alert("Username atau Password Salah!");
             window.location="' . base_url('home') . '"
             </script>';
-
-            // // $this->session->set_flashdata('error', 'Username atau password salah');
-
-            // $this->session->set_flashdata('error', 'Username atau Password salah');
             return view('home');
-            //  session()->setFlashdata("error", "Username atau password salah");
-            //  return redirect()->to(base_url('/home'));
-
-
         }
     }
-
+        
     public function logout()
     {
         $session = session();
